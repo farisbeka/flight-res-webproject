@@ -1,0 +1,12 @@
+{
+    "name": "farisbektas/flight-reservation",
+    "description": "Flight reservation system",
+    "license": "Apache2",
+    "authors": [
+        {
+            "name": "bektafa",
+            "email": "bektafa@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
