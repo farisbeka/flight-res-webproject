@@ -1,4 +1,4 @@
-// AUTHOR FARIS BEKTAS
+
 
 <?php
 
