@@ -18,13 +18,14 @@ $newAccount = new AccountsDao();
 $id=1;
 $email="farisbeka@beka.com";
 
-$bekanovi = $newAccount->get_user_by_email($email);
+$novi_insert=[
+    "id"=>"2",
+    "username"=>"hanja",
+    "email"=>"hanja@hanja.com",
+    "password"=>"hanja"
+];
+$imetabele="accounts";
 
-print_r($bekanovi);
-
-
-$airporti = $newAirport->return_airport_by_id($id);
-
-print_r($airporti);
+$zahanju = $newAccount->insert_new_account($imetabele, $novi_insert);
 
 ?>
