@@ -17,7 +17,7 @@ class BaseDao{
         // Error exceptions
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-         echo "Connected!";
+         //echo "Connected!";
         
         // echo "Connected successfully";
         } catch(PDOException $e) {
@@ -25,10 +25,24 @@ class BaseDao{
         }
     }
 
-    public function insert(){
-
-
-    }
+    protected function insert($table, $entity){
+        $query = "INSERT INTO ${table} (";
+        foreach ($entity as $column => $value) {
+          $query .= $column.", ";
+        }
+        $query = substr($query, 0, -2);
+        $query .= ") VALUES (";
+        foreach ($entity as $column => $value) {
+          $query .= ":".$column.", ";
+        }
+        $query = substr($query, 0, -2);
+        $query .= ")";
+    
+        $stmt= $this->connection->prepare($query);
+        $stmt->execute($entity); 
+        $entity['id'] = $this->connection->lastInsertId();
+        return $entity;
+      }
 
     public function update(){
 
