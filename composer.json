@@ -8,5 +8,7 @@
             "email": "bektafa@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "zircote/swagger-php": "^3.1"
+    }
 }
