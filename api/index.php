@@ -18,14 +18,14 @@ $newAccount = new AccountsDao();
 $id=1;
 $email="farisbeka@beka.com";
 
-$novi_insert=[
+/*$novi_insert=[
     "id"=>"3",
     "username"=>"kenan",
     "email"=>"kenan@bektas.me",
     "password"=>"kenanxd"
-];
+]
 $imetabele="accounts";
 
 $zahanju = $newAccount->insert_new_account($imetabele, $novi_insert);
-  
+  */
 ?>
