@@ -4,6 +4,13 @@
 
 require_once dirname(__FILE__)."/../config.php";
 
+
+/**
+ * The main class for interaction with database.
+ * All other dao classes should inherit this class.
+ * @author Faris Bektas
+ */
+
 class BaseDao{
 
     protected $connection;
@@ -60,6 +67,17 @@ class BaseDao{
     {
         $results = $this->query($query, $params);
         return reset($results);
+    }
+
+    public function update_account($id, $account) {
+      $this->update("accounts", $id, $account);
+  }
+    public function add($entity){
+      return $this->insert($this->table, $entity);
+    }
+
+    public function get_all(){
+      return $this->query("SELECT * FROM ".$this->table, []);
     }
 
 

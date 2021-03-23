@@ -28,6 +28,10 @@ class AccountsDao extends BaseDao {
         return $this->query("SELECT * FROM accounts", []);
     }
 
+    public function update_account($id, $account) {
+        $this->update("accounts", $id, $account);
+    }
+
 }
 
 
