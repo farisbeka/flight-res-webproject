@@ -18,6 +18,8 @@ $newAccount = new AccountsDao();
 $id=1;
 $email="farisbeka@beka.com";
 
+
+//test to insert acc
 /*$novi_insert=[
     "id"=>"3",
     "username"=>"kenan",
@@ -28,4 +30,12 @@ $imetabele="accounts";
 
 $zahanju = $newAccount->insert_new_account($imetabele, $novi_insert);
   */
+
+
+//test to get all accs
+/*$dao = new AccountsDao();
+$accounts = $dao->get_all_accounts();
+print_r($accounts);
+*/
+
 ?>
