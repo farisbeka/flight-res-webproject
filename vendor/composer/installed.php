@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '90e8d9d415db270efd985b753ab55154079ab80e',
+    'reference' => 'b67d7098c43d12defe17abbad6ecc85efa781b0d',
     'name' => 'farisbektas/flight-reservation',
   ),
   'versions' => 
@@ -36,7 +36,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '90e8d9d415db270efd985b753ab55154079ab80e',
+      'reference' => 'b67d7098c43d12defe17abbad6ecc85efa781b0d',
+    ),
+    'mikecao/flight' => 
+    array (
+      'pretty_version' => 'v1.3.8',
+      'version' => '1.3.8.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b3120f8db2ae3b358c1c7a412a92d7aa008a57b4',
     ),
     'symfony/deprecation-contracts' => 
     array (

@@ -16,8 +16,9 @@ class BaseDao{
     protected $connection;
 
     
-    public function __construct()
+    public function __construct($table)
     {
+        $this->table=$table;
         try {
         $this->connection = new PDO("mysql:host=" .Config::DB_HOST. ";dbname=".Config::DB_SCHEME,Config::DB_USERNAME,Config::DB_PASSWORD);
         
@@ -54,6 +55,8 @@ class BaseDao{
     public function update(){
 
 
+
+
     }
 
     public function query($query, $params)
@@ -77,8 +80,12 @@ class BaseDao{
     }
 
     public function get_all(){
-      return $this->query("SELECT * FROM ".$this->table, []);
+      return $this->query("SELECT * FROM accounts" , []);
     }
+
+    public function get_user_by_id($id){
+      return $this->query_unique("SELECT * FROM accounts WHERE id=:id", ["id" => $id]);
+  }
 
 
 }
