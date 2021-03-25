@@ -1,9 +1,9 @@
 <?php
 
 require_once dirname(__FILE__)."/../dao/AccountsDao.class.php";
+require_once dirname(__FILE__)."/BaseService.class.php";
 
-class AccountService {
-    private $dao;
+class AccountService extends BaseService{
     public function __construct()
     {
         $this->dao = new AccountsDao();
@@ -18,6 +18,16 @@ class AccountService {
         }
 
     }
+
+    public function add($account) {
+        //validation of accoutn data;
+        if (!isset($account['username'])) throw new Exception("Name is missing");
+
+
+        return parent::add($account);
+    }
+
+    
 }
 
 ?>

@@ -12,24 +12,19 @@ Flight::route('GET /accounts', function() {
 
   
   Flight::route('GET /accounts/@id', function($id) {
-    Flight::json(Flight::accounts()->get_user_by_id($id));
+    Flight::json(Flight::accountService()->get_user_by_id($id));
   });
 
   
   Flight::route('POST /accounts', function() {
-    $request = Flight::request();
-    $data = $request->data->getData();
-    $account = Flight::accounts()->add($data);
-    Flight::json($account); 
+    $data = Flight::request()->data->getData();
+    Flight::json(Flight::accountService()->add($data)); 
   });
   
 
   Flight::route('PUT /accounts/@id', function($id){
-    $request = Flight::request();
-    $data = $request->data->getData();
-    Flight::accounts()->update($id, $data);
-    $account = Flight::accounts()->get_user_by_id($id);
-    Flight::json($account); 
+    $data = Flight::request()->data->getData();
+    Flight::json(Flight::accountService()->update($id, $data)); 
   });
 
 ?>
