@@ -11,6 +11,8 @@ require_once dirname(__FILE__)."/dao/BaseDao.class.php";
 require_once dirname(__FILE__)."/dao/BookingDao.class.php";
 require_once dirname(__FILE__)."/dao/AirportsDao.class.php";
 require_once dirname(__FILE__)."/dao/AccountsDao.class.php";
+require_once dirname(__FILE__)."/services/AccountService.class.php";
+
 
 /**
  * utility func for reading query parameters from url
@@ -35,6 +37,8 @@ $newAirport = new AirportsDao();
  */
 Flight::register("accounts","AccountsDao");
 Flight::register("airports", "AirportsDao");
+/**Register business logic layer */
+Flight::register("accountService","AccountService");
 
 
 
