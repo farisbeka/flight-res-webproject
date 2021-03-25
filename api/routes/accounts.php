@@ -4,6 +4,16 @@ Flight::route('GET /accounts', function() {
 
     $offset = Flight::query('offset', 0);
     $limit = Flight::query('limit', 10);
+
+    $search = Flight::query('search');
+
+    if($search) {
+        Flight::json(Flight::accounts()->get_accounts($search, $offset, $limit));
+
+    } else {
+        Flight::json(Flight::accounts()->get_all($offset,$limit));
+    }
+
     Flight::json(Flight::accounts()->get_all($offset,$limit));
   });
 
