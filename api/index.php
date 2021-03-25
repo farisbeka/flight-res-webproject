@@ -12,7 +12,17 @@ require_once dirname(__FILE__)."/dao/BookingDao.class.php";
 require_once dirname(__FILE__)."/dao/AirportsDao.class.php";
 require_once dirname(__FILE__)."/dao/AccountsDao.class.php";
 
+/**
+ * utility func for reading query parameters from url
+ */
+Flight::map('query', function($name, $default_value=NULL) {
+  $request = Flight::request();
+  $query_param = @$request->query->getData()[$name];
+  $query_param = $query_param ? $query_param : $default_value;
+  return $query_param;
 
+});
+/**Include all routes */
 require_once dirname(__FILE__)."/routes/accounts.php";
 
 //$newinstance = new BaseDao();
@@ -20,35 +30,15 @@ require_once dirname(__FILE__)."/routes/accounts.php";
 //$newAccount = new AccountsDao();
 $newAirport = new AirportsDao();
 
-
+/**
+ * Register DAO layer
+ */
 Flight::register("accounts","AccountsDao");
 Flight::register("airports", "AirportsDao");
-
-Flight::route('/', function(){
-    echo 'hello world!';
-});
-
-
-
-/*Flight::route('GET /accounts', function(){
-  $dao = new AccountsDao();
-  $accounts = $dao->get_all();    
-  Flight::json($accounts);
-});*/
-
-/*Flight::route('GET /accounts/allaccount', function(){
-  $acc = new AccountsDao();
-  Flight::json($acc->get_all_accounts());
-
-});*/
 
 
 
 Flight::start();
-
-
-//$id=1;
-//$email="farisbeka@beka.com";
 
 
 //test to insert acc

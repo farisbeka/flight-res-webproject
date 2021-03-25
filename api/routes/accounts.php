@@ -1,8 +1,10 @@
 <?php
 
-
 Flight::route('GET /accounts', function() {
-    Flight::json(Flight::accounts()->get_all());
+
+    $offset = Flight::query('offset', 0);
+    $limit = Flight::query('limit', 10);
+    Flight::json(Flight::accounts()->get_all($offset,$limit));
   });
 
   
