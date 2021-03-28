@@ -33,6 +33,21 @@ class BaseDao{
         }
     }
 
+
+
+    public function beginTransaction(){
+      $response = $this->connection->beginTransaction();
+    }
+  
+    public function commit(){
+      $this->connection->commit();
+    }
+  
+    public function rollBack(){
+      $response = $this->connection->rollBack();
+    }
+
+
     protected function insert($table, $entity){
         $query = "INSERT INTO ${table} (";
         foreach ($entity as $column => $value) {

@@ -26,16 +26,14 @@ Flight::map('query', function($name, $default_value=NULL) {
 });
 /**Include all routes */
 require_once dirname(__FILE__)."/routes/accounts.php";
+require_once dirname(__FILE__)."/routes/airports.php";
 
 //$newinstance = new BaseDao();
 //$newBooking = new BookingDao();
 //$newAccount = new AccountsDao();
 $newAirport = new AirportsDao();
 
-/**
- * Register DAO layer
- */
-Flight::register("accounts","AccountsDao");
+
 Flight::register("airports", "AirportsDao");
 /**Register business logic layer */
 Flight::register("accountService","AccountService");

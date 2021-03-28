@@ -27,4 +27,13 @@ Flight::route('GET /accounts', function() {
     Flight::json(Flight::accountService()->update($id, $data)); 
   });
 
+
+  Flight::route('POST /accounts/register', function() {
+    $data = Flight::request()->data->getData();
+    Flight::json(Flight::accountService()->add($data)); 
+  });
+
+
+
+
 ?>
