@@ -40,6 +40,8 @@ class BaseDao{
         
         // Error exceptions
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $this->connection->setAttribute(PDO::ATTR_AUTOCOMMIT, 0);
         
          //echo "Connected!";
         

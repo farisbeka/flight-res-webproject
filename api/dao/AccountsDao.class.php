@@ -27,7 +27,7 @@ class AccountsDao extends BaseDao {
         return $this->insert($tablename, $entity);
     }
 
-    public function get_all_accounts($offset, $limit, $search, $order='-id') {
+    public function get_all_accounts() {
 
         return $this->query("SELECT * FROM accounts", []);
     }
