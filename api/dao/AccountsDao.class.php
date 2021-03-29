@@ -38,14 +38,8 @@ class AccountsDao extends BaseDao {
 
     public function get_accounts($search, $offset, $limit, $order){
 
-        switch(substr($order,0,1)) {
-            case '-': $order_direction = "ASC"; break;
-            case '+': $order_direction = "DESC"; break;
-                default: throw new Exception("Invalid order format. First character should be either - or +"); break;
+        list($order_column, $order_direction) = self::parse_order($order);
 
-        };
-
-        $order_column = $this->connection->quote(substr($order, 1)); 
 
         return $this->query("SELECT * FROM accounts 
                              WHERE LOWER(username) LIKE CONCAT('%', :username, '%') 
