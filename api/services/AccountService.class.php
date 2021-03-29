@@ -37,7 +37,8 @@ class AccountService extends BaseService{
     } 
     catch (\Exception $e) {
       $this->dao->rollBack();
-      if (str_contains($e->getMessage(), 'users.uq_user_email')) {
+      //accounts.email_UNIQUE
+      if (str_contains($e->getMessage(), 'accounts.email_UNIQUE')) {
         throw new Exception("Account with same email exists in the database", 400, $e);
       }
       else{
