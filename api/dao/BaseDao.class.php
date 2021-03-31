@@ -35,13 +35,13 @@ class BaseDao{
     public function __construct($table)
     {
         $this->table=$table;
-        try {
+                try {
         $this->connection = new PDO("mysql:host=" .Config::DB_HOST. ";dbname=".Config::DB_SCHEME,Config::DB_USERNAME,Config::DB_PASSWORD);
         
         // Error exceptions
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $this->connection->setAttribute(PDO::ATTR_AUTOCOMMIT, 0);
+        //$this->connection->setAttribute(PDO::ATTR_AUTOCOMMIT, 0);
         
          //echo "Connected!";
         
@@ -66,7 +66,7 @@ class BaseDao{
     }
 
 
-    protected function insert($table, $entity){
+    public function insert($table, $entity){
         $query = "INSERT INTO ${table} (";
         foreach ($entity as $column => $value) {
           $query .= $column.", ";
@@ -85,7 +85,7 @@ class BaseDao{
         return $entity;
       }
 
-      protected function execute_update($table, $id, $entity, $id_column = "id"){
+      public function execute_update($table, $id, $entity, $id_column = "id"){
         $query = "UPDATE ${table} SET ";
         foreach($entity as $name => $value){
           $query .= $name ."= :". $name. ", ";
@@ -134,6 +134,11 @@ class BaseDao{
     public function get_user_by_id($id){
       return $this->query_unique("SELECT * FROM accounts WHERE id=:id", ["id" => $id]);
   }
+
+  public function get_airport_by_id($id)
+    {
+        return $this->query_unique("SELECT * FROM airports WHERE airportid=:id", ["id" => $id]);
+    }
 
 
 }

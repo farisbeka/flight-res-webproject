@@ -3,6 +3,8 @@
 require_once dirname(__FILE__)."/../dao/AccountsDao.class.php";
 require_once dirname(__FILE__)."/BaseService.class.php";
 require_once dirname(__FILE__)."/../dao/BaseDao.class.php";
+require_once dirname(__FILE__)."/../dao/AirportsDao.class.php";
+
 
 class AccountService extends BaseService{
 
@@ -22,12 +24,12 @@ class AccountService extends BaseService{
     }
 
     public function register($account){
-        if (!isset($account['account'])) throw new Exception("Account field is required");
+        if (!isset($account['username'])) throw new Exception("Account field is required");
     
         try {
           $this->dao->beginTransaction();
-          $account = $this->accountDao->add([
-            "username" => $account['account'],
+          $account = $this->dao->add([
+            "username" => $account['username'],
             "email" => $account['email'],
             "password" => md5($account['password'])
           ]);

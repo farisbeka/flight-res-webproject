@@ -12,17 +12,18 @@ require_once dirname(__FILE__)."/dao/BookingDao.class.php";
 require_once dirname(__FILE__)."/dao/AirportsDao.class.php";
 require_once dirname(__FILE__)."/dao/AccountsDao.class.php";
 require_once dirname(__FILE__)."/services/AccountService.class.php";
+require_once dirname(__FILE__)."/services/AirportsService.class.php";
 
 
 Flight::set('flight.log_errors', TRUE);
 
  /**Error handling for our API */
- Flight::map('error', function(Exception $ex) {
+ /*Flight::map('error', function(Exception $ex) {
    //header("Content-type: application/json");
    //Flight::halt($ex->getCode(), json_encode(["message" => $ex->getMessage()]));
 
    Flight::json(["message" => $ex->getMessage()],$ex->getCode());
- });
+ });*/
 
 
 /**
@@ -42,12 +43,13 @@ require_once dirname(__FILE__)."/routes/airports.php";
 //$newinstance = new BaseDao();
 //$newBooking = new BookingDao();
 //$newAccount = new AccountsDao();
-$newAirport = new AirportsDao();
+//$newAirport = new AirportsDao();
 
 
-Flight::register("airports", "AirportsDao");
+//Flight::register("airports", "AirportsDao");
 /**Register business logic layer */
 Flight::register("accountService","AccountService");
+Flight::register("Airportsservice","AirportsService");
 
 
 

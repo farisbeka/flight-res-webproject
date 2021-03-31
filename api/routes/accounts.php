@@ -33,7 +33,8 @@ Flight::route('GET /accounts', function() {
 
   Flight::route('POST /accounts/register', function() {
     $data = Flight::request()->data->getData();
-    Flight::json(Flight::accountService()->add($data)); 
+    Flight::accountService()->register($data);
+    Flight::json(".."); 
   });
 
 

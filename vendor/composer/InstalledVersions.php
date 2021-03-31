@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b67d7098c43d12defe17abbad6ecc85efa781b0d',
+    'reference' => '36d90df9f353092c9fc478db44b2692adeedba3b',
     'name' => 'farisbektas/flight-reservation',
   ),
   'versions' => 
@@ -60,7 +60,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b67d7098c43d12defe17abbad6ecc85efa781b0d',
+      'reference' => '36d90df9f353092c9fc478db44b2692adeedba3b',
     ),
     'mikecao/flight' => 
     array (
