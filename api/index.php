@@ -39,6 +39,8 @@ Flight::map('query', function($name, $default_value=NULL) {
 /**Include all routes */
 require_once dirname(__FILE__)."/routes/accounts.php";
 require_once dirname(__FILE__)."/routes/airports.php";
+require_once dirname(__FILE__)."/routes/flights.php";
+
 
 //$newinstance = new BaseDao();
 //$newBooking = new BookingDao();
@@ -50,6 +52,7 @@ require_once dirname(__FILE__)."/routes/airports.php";
 /**Register business logic layer */
 Flight::register("accountService","AccountService");
 Flight::register("Airportsservice","AirportsService");
+Flight::register("flightService","FlightService");
 
 
 
