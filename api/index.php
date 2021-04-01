@@ -8,11 +8,14 @@ error_reporting(E_ALL);
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 require_once dirname(__FILE__)."/dao/BaseDao.class.php";
+require_once dirname(__FILE__)."/dao/FlightsDao.class.php";
 require_once dirname(__FILE__)."/dao/BookingDao.class.php";
 require_once dirname(__FILE__)."/dao/AirportsDao.class.php";
 require_once dirname(__FILE__)."/dao/AccountsDao.class.php";
 require_once dirname(__FILE__)."/services/AccountService.class.php";
 require_once dirname(__FILE__)."/services/AirportsService.class.php";
+require_once dirname(__FILE__)."/services/FlightService.class.php";
+
 
 
 Flight::set('flight.log_errors', TRUE);
@@ -52,7 +55,7 @@ require_once dirname(__FILE__)."/routes/flights.php";
 /**Register business logic layer */
 Flight::register("accountService","AccountService");
 Flight::register("Airportsservice","AirportsService");
-Flight::register("flightService","FlightService");
+Flight::register("flightService","flightService");
 
 
 
