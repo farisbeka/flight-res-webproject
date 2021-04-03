@@ -39,12 +39,30 @@ Flight::map('query', function($name, $default_value=NULL) {
   return $query_param;
 
 });
+
+
+
+
+ Flight::route('GET /swagger', function() {
+  $openapi = @\OpenApi\scan(dirname(__FILE__)."/routes");
+  header('Content-Type: application/json');
+  echo $openapi->toJson();
+
+
+});
+
+
+/**Register business logic layer */
+Flight::register("accountService","AccountService");
+Flight::register("Airportsservice","AirportsService");
+Flight::register("flightService","flightService");
+
+
+
 /**Include all routes */
 require_once dirname(__FILE__)."/routes/accounts.php";
 require_once dirname(__FILE__)."/routes/airports.php";
 require_once dirname(__FILE__)."/routes/flights.php";
-require_once dirname(__FILE__)."/routes/doc.php";
-
 
 
 //$newinstance = new BaseDao();
@@ -54,10 +72,9 @@ require_once dirname(__FILE__)."/routes/doc.php";
 
 
 //Flight::register("airports", "AirportsDao");
-/**Register business logic layer */
-Flight::register("accountService","AccountService");
-Flight::register("Airportsservice","AirportsService");
-Flight::register("flightService","flightService");
+
+
+
 
 
 
