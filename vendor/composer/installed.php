@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '665d21a6a1b14bc13a63b5010d74ef49c5060aa5',
+    'reference' => '9c46fa1e0a0fca1858382cf39455279dad01251f',
     'name' => 'farisbektas/flight-reservation',
   ),
   'versions' => 
@@ -29,6 +29,15 @@
       ),
       'reference' => 'e864bbf5904cb8f5bb334f99209b48018522f042',
     ),
+    'egulias/email-validator' => 
+    array (
+      'pretty_version' => '3.1.1',
+      'version' => '3.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c81f18a3efb941d8c4d2e025f6183b5c6d697307',
+    ),
     'farisbektas/flight-reservation' => 
     array (
       'pretty_version' => 'dev-main',
@@ -36,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '665d21a6a1b14bc13a63b5010d74ef49c5060aa5',
+      'reference' => '9c46fa1e0a0fca1858382cf39455279dad01251f',
     ),
     'mikecao/flight' => 
     array (
@@ -46,6 +55,15 @@
       array (
       ),
       'reference' => 'b3120f8db2ae3b358c1c7a412a92d7aa008a57b4',
+    ),
+    'swiftmailer/swiftmailer' => 
+    array (
+      'pretty_version' => 'v6.2.7',
+      'version' => '6.2.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '15f7faf8508e04471f666633addacf54c0ab5933',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -73,6 +91,51 @@
       array (
       ),
       'reference' => 'c6c942b1ac76c82448322025e084cadc56048b4e',
+    ),
+    'symfony/polyfill-iconv' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '06fb361659649bcfd6a208a0f1fcaf4e827ad342',
+    ),
+    'symfony/polyfill-intl-idn' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2d63434d922daf7da8dd863e7907e67ee3031483',
+    ),
+    'symfony/polyfill-intl-normalizer' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '43a0283138253ed1d48d352ab6d0bdb3f809f248',
+    ),
+    'symfony/polyfill-mbstring' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5232de97ee3b75b0360528dae24e73db49566ab1',
+    ),
+    'symfony/polyfill-php72' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cc6e6f9b39fe8075b3dabfbaf5b5f645ae1340c9',
     ),
     'symfony/yaml' => 
     array (

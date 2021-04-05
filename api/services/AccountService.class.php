@@ -4,14 +4,19 @@ require_once dirname(__FILE__)."/../dao/AccountsDao.class.php";
 require_once dirname(__FILE__)."/BaseService.class.php";
 require_once dirname(__FILE__)."/../dao/BaseDao.class.php";
 require_once dirname(__FILE__)."/../dao/AirportsDao.class.php";
+require_once dirname(__FILE__)."/../clients/SMTPClient.class.php";
 
 
 class AccountService extends BaseService{
 
+  private $smtpClient;
+
     public function __construct()
     {
         $this->dao = new AccountsDao();
+        $this->smtpClient = new SMTPClient();
     }
+
 
     public function get_accounts($search, $offset, $limit, $order){
         if($search) {
@@ -31,7 +36,8 @@ class AccountService extends BaseService{
           $account = $this->dao->add([
             "username" => $account['username'],
             "email" => $account['email'],
-            "password" => md5($account['password'])
+            "password" => md5($account['password']),
+            "token" => md5(random_bytes(16))
           ]);
 
 
@@ -48,9 +54,21 @@ class AccountService extends BaseService{
       }
     }
 
+    $this->smtpClient->send_register_user_token($account);
+
     return $account;
     
 }
+
+public function confirm($token){
+  $account = $this->dao->get_user_by_token($token);
+
+  if (!isset($account['id'])) throw new Exception("Invalid token", 400);
+
+  $this->dao->update_account($account['id'], ["status" => "ACTIVE", "token" => NULL]);
+  return $account;
+}
+
 }
 
 ?>

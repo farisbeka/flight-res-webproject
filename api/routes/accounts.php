@@ -99,6 +99,11 @@ Flight::route('GET /accounts', function() {
     Flight::json(".."); 
   });
 
+  Flight::route('GET /accounts/confirm/@token', function($token){
+  Flight::accountService()->confirm($token);
+  Flight::json(["message" => "Your account has been activated!"]);
+  });
+
 
 
 
