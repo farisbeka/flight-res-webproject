@@ -93,15 +93,51 @@ Flight::route('GET /accounts', function() {
   });
 
 
+ /**
+ *     @OA\Post(path="/accounts/register", tags={"account"},
+ * @OA\RequestBody(description="Basic account info", required=true
+ *     @OA\MediaType(mediaType="application/json",
+ *    			@OA\Schema(
+ *    				 @OA\Property(property="username", required="true", type="string", example="Beka", description="Name of the account"),
+ *    				 @OA\Property(property="email", type="string", example="myemail@gmail.com", description="Email of the account"),
+ *    				 @OA\Property(property="password", type="string", example="12345", description="Password of the account"),
+ *          )
+ *     )
+ * ),
+ *     @OA\Response(response="200", description="Message that user has been created.")
+ * )
+ */ 
+
   Flight::route('POST /accounts/register', function() {
     $data = Flight::request()->data->getData();
     Flight::accountService()->register($data);
-    Flight::json(".."); 
+    Flight::json(["message" => "Confirmation email has been sent. Please confirm your account"]);
   });
 
   Flight::route('GET /accounts/confirm/@token', function($token){
   Flight::accountService()->confirm($token);
   Flight::json(["message" => "Your account has been activated!"]);
+  });
+
+
+/**
+ *     @OA\Post(path="/accounts/login", tags={"account"},
+ * @OA\RequestBody(description="Basic account info", required=true
+ *     @OA\MediaType(mediaType="application/json",
+ *    			@OA\Schema(
+ *    				 @OA\Property(property="email", type="string", example="myemail@gmail.com", description="Email of the account"),
+ *    				 @OA\Property(property="password", type="string", example="12345", description="Password of the account"),
+ *          )
+ *     )
+ * ),
+ *     @OA\Response(response="200", description="Message that user has been created.")
+ * )
+ */ 
+
+  Flight::route('POST /accounts/login', function() {
+    $data = Flight::request()->data->getData();
+    Flight::accountService()->login($data);
+    Flight::json("You have succesfully logged in!");
   });
 
 

@@ -70,6 +70,19 @@ public function confirm($token){
   return $account;
 }
 
+public function login($account) {
+
+  $db_account = $this->dao->get_user_by_email($account['email']);
+
+  if(!isset($db_account['id'])) throw new Exception("User does not exist", 400);
+
+  if($db_account['status'] != 'ACTIVE') throw new Exception("Account not active", 400);
+
+  if($db_account['password'] != md5($account['password'])) throw new Exception("Invalid password", 400);
+
+  return $db_account;
+}
+
 }
 
 ?>
