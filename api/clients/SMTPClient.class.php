@@ -32,17 +32,17 @@ class SMTPClient {
        $this->mailer->send($message);
     }
 
-    /*public function send_user_recovery_token($account) {
+    public function send_user_recovery_token($account) {
         // Create a message
         $message = (new Swift_Message('Reset your password'))
         ->setFrom(['faris@bekta.me' => 'Flight Reservation'])
         ->setTo([$account['email']])
-        ->setBody('Here is the confirmation token:   ')
+        ->setBody('Here is the recovery token: '.$account['token']);
         ;
         
         // Send the message
-       $mailer->send($message);
-    }*/
+       $this->mailer->send($message);
+    }
 }
 
         

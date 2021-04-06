@@ -83,6 +83,14 @@ public function login($account) {
   return $db_account;
 }
 
+public function forgot($account) {
+
+  $db_account = $this->dao->get_user_by_email($account['email']);
+
+  if(!isset($db_account['id'])) throw new Exception("User does not exist", 400);
+
+}
+
 }
 
 ?>

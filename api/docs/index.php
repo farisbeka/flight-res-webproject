@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Flight Reservation API</title>
-    <link rel="stylesheet" type="text/css" href="/swagger-ui.css">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="stylesheet" type="text/css" href="//<?=$_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI']?>swagger-ui.css">
+    <link rel="icon" type="image/png" href="//<?=$_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI']?>favicon-32x32.png" sizes="32x32" />
     <style>
         html {
             box-sizing: border-box;
@@ -32,8 +32,8 @@
 <body>
     <div id="swagger-ui"></div>
 
-    <script src="/swagger-ui-bundle.js"> </script>
-    <script src="/swagger-ui-standalone-preset.js"> </script>
+    <script src="//<?=$_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI']?>swagger-ui-bundle.js"> </script>
+    <script src="//<?=$_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI']?>swagger-ui-standalone-preset.js"> </script>
     <script>
         window.onload = function () {
             // Begin Swagger UI call region

@@ -52,7 +52,7 @@ Flight::route('GET /accounts', function() {
 
  /**
  *     @OA\Post(path="/accounts", tags={"account"},
- * @OA\RequestBody(description="Basic account info", required=true
+ * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
  *    				 @OA\Property(property="username", required="true", type="string", example="Beka", description="Name of the account"),
@@ -74,7 +74,7 @@ Flight::route('GET /accounts', function() {
   /**
  *     @OA\Put(path="/accounts/{id}", tags={"account"},
  *     @OA\Parameter(@OA\Schema(type="integer"), in="path", name="id", default=1),
- * @OA\RequestBody(description="Basic account info that is going to be updated", required=true
+ * @OA\RequestBody(description="Basic account info that is going to be updated", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
  *    				 @OA\Property(property="username", required="true", type="string", example="Beka", description="Name of the account"),
@@ -95,7 +95,7 @@ Flight::route('GET /accounts', function() {
 
  /**
  *     @OA\Post(path="/accounts/register", tags={"account"},
- * @OA\RequestBody(description="Basic account info", required=true
+ * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
  *    				 @OA\Property(property="username", required="true", type="string", example="Beka", description="Name of the account"),
@@ -122,7 +122,7 @@ Flight::route('GET /accounts', function() {
 
 /**
  *     @OA\Post(path="/accounts/login", tags={"account"},
- * @OA\RequestBody(description="Basic account info", required=true
+ * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
  *    				 @OA\Property(property="email", type="string", example="myemail@gmail.com", description="Email of the account"),
@@ -139,6 +139,24 @@ Flight::route('GET /accounts', function() {
     Flight::accountService()->login($data);
     Flight::json("You have succesfully logged in!");
   });
+
+  /**
+ *     @OA\Post(path="/accounts/forgot", tags={"account"}, description="Send recovery URL to users email address",
+ * @OA\RequestBody(description="Basic account info", required=true,
+ *     @OA\MediaType(mediaType="application/json",
+ *    			@OA\Schema(
+ *    				 @OA\Property(property="email", type="string", example="myemail@gmail.com", description="Email of the account")
+ *          )
+ *     )
+ * ),
+ *     @OA\Response(response="200", description="Message that recovery link has been sent.")
+ * )
+ */ 
+
+Flight::route('POST /accounts/forgot', function() {
+  $data = Flight::request()->data->getData();
+  Flight::accountService()->login($data);
+});
 
 
 
