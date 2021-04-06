@@ -39,7 +39,7 @@ class AccountService extends BaseService{
             "password" => md5($account['password']),
             "token" => md5(random_bytes(16))
           ]);
-
+              print_r($account);
 
     $this->dao->commit();
     } 
@@ -61,11 +61,12 @@ class AccountService extends BaseService{
 }
 
 public function confirm($token){
+
   $account = $this->dao->get_user_by_token($token);
 
   if (!isset($account['id'])) throw new Exception("Invalid token", 400);
 
-  $this->dao->update_account($account['id'], ["status" => "ACTIVE", "token" => NULL]);
+  $this->dao->update_account($account['id'], ["status" => "ACTIVE", "token" => $token]);
   return $account;
 }
 

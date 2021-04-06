@@ -33,7 +33,7 @@ class AccountsDao extends BaseDao {
     }
 
     public function update_account($id, $account) {
-        $this->update("accounts", $id, $account);
+        $this->update($id, $account);
     }
 
     public function get_accounts($search, $offset, $limit, $order){
