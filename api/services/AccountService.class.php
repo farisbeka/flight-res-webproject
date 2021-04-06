@@ -40,7 +40,7 @@ class AccountService extends BaseService{
             "token" => md5(random_bytes(16))
           ]);
               print_r($account);
-
+              
     $this->dao->commit();
     } 
     catch (\Exception $e) {
