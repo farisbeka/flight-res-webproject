@@ -6,6 +6,7 @@ class Config {
     const DB_USERNAME= "root";
     const DB_PASSWORD= "risfakralj1";
     const DB_SCHEME = "flight_reservation";
+    const DATE_FORMAT = "Y-m-d H:i:s";
 
     const SMTP_HOST = "smtp.mailgun.org";
     const SMTP_PORT = 587;
