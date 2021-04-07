@@ -89,6 +89,20 @@ public function forgot($account) {
 
   if(!isset($db_account['id'])) throw new Exception("User does not exist", 400);
 
+  //generate token, save it do db
+  $db_account = $this->update($db_account['id'], ['token' => md5(random_bytes(16))]);
+
+  //send email
+  $this->smtpClient->send_user_recovery_token($db_account);
+}
+
+public function reset($account) {
+
+  $db_account = $this->dao->get_user_by_token($account['token']);
+
+  if (!isset($db_account['id'])) throw new Exception("Invalid token", 400);
+
+  $this->dao->update($db_account['id'], ['password' => md5($account['password'])]);
 }
 
 }
