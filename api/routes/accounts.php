@@ -3,7 +3,7 @@
 /**Swagger Documentation */
 
 /**
- * @OA\Info(title="flight-reservation API", version="0.1")
+ * @OA\Info(title="Flight Reservation API", version="0.1")
  * @OA\OpenApi(
  *   @OA\Server(
  *       url="http://localhost/flight-reservation/api/",

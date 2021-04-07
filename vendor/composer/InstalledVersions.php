@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '9c46fa1e0a0fca1858382cf39455279dad01251f',
+    'reference' => 'ea537616f6b0038cd64bc1e5ac6e8aa797598240',
     'name' => 'farisbektas/flight-reservation',
   ),
   'versions' => 
@@ -69,7 +69,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '9c46fa1e0a0fca1858382cf39455279dad01251f',
+      'reference' => 'ea537616f6b0038cd64bc1e5ac6e8aa797598240',
+    ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.2.1',
+      'version' => '5.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f42c9110abe98dd6cfe9053c49bc86acc70b2d23',
     ),
     'mikecao/flight' => 
     array (
