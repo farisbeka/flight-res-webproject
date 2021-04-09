@@ -70,6 +70,8 @@ Flight::register("flightService","flightService");
 require_once dirname(__FILE__)."/routes/accounts.php";
 require_once dirname(__FILE__)."/routes/airports.php";
 require_once dirname(__FILE__)."/routes/flights.php";
+require_once dirname(__FILE__)."/routes/middleware.php";
+
 
 
 //$newinstance = new BaseDao();
