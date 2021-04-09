@@ -100,7 +100,7 @@ Flight::route('GET /accounts', function() {
 
 
  /**
- *     @OA\Post(path="/accounts/register", tags={"account"},
+ *     @OA\Post(path="/register", tags={"account"},
  * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -114,7 +114,7 @@ Flight::route('GET /accounts', function() {
  * )
  */ 
 
-  Flight::route('POST /accounts/register', function() {
+  Flight::route('POST /register', function() {
     $data = Flight::request()->data->getData();
     Flight::accountService()->register($data);
     Flight::json(["message" => "Confirmation email has been sent. Please confirm your account"]);
@@ -122,21 +122,21 @@ Flight::route('GET /accounts', function() {
 
 
 /**
- *     @OA\Get(path="/accounts/confirm/{token}", tags={"account"},
+ *     @OA\Get(path="/confirm/{token}", tags={"account"},
  *     @OA\Parameter(type="string", in="path", name="token", default=123, description="Temporary token for activating account."),
  *     @OA\Response(response="200", description="Message upon succesfull activation.")
  * )
  */ 
 
 
-  Flight::route('GET /accounts/confirm/@token', function($token){
+  Flight::route('GET /confirm/@token', function($token){
   Flight::accountService()->confirm($token);
   Flight::json(["message" => "Your account has been activated!"]);
   });
 
 
 /**
- *     @OA\Post(path="/accounts/login", tags={"account"},
+ *     @OA\Post(path="/login", tags={"account"},
  * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -149,14 +149,14 @@ Flight::route('GET /accounts', function() {
  * )
  */ 
 
-  Flight::route('POST /accounts/login', function() {
+  Flight::route('POST /login', function() {
     $data = Flight::request()->data->getData();
     Flight::accountService()->login($data);
     Flight::json("You have succesfully logged in!");
   });
 
   /**
- *     @OA\Post(path="/accounts/forgot", tags={"account"}, description="Send recovery URL to users email address",
+ *     @OA\Post(path="/forgot", tags={"account"}, description="Send recovery URL to users email address",
  * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -168,14 +168,14 @@ Flight::route('GET /accounts', function() {
  * )
  */ 
 
-Flight::route('POST /accounts/forgot', function() {
+Flight::route('POST /forgot', function() {
   $data = Flight::request()->data->getData();
   Flight::accountService()->forgot($data);
   Flight::json(["message" => "Recovery link has been sent to your email!"]);
 });
 
 /**
- *     @OA\Post(path="/accounts/reset", tags={"account"}, description="Reset users password using recovery token",
+ *     @OA\Post(path="/reset", tags={"account"}, description="Reset users password using recovery token",
  * @OA\RequestBody(description="Basic account info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -188,7 +188,7 @@ Flight::route('POST /accounts/forgot', function() {
  * )
  */ 
 
-Flight::route('POST /accounts/reset', function() {
+Flight::route('POST /reset', function() {
   $data = Flight::request()->data->getData();
   Flight::accountService()->reset($data);
   Flight::json(["message" => "Your password has been changed!"]);

@@ -80,7 +80,7 @@ public function login($account) {
 
   if($db_account['password'] != md5($account['password'])) throw new Exception("Invalid password", 400);
 
-  $jwt = \Firebase\JWT\JWT::encode(["id" => $db_account["id"], "r" => $db_account["role"]], "JWT SECRET");
+  $jwt = \Firebase\JWT\JWT::encode(["id" => $db_account["id"], "role" => $db_account["role"]], "JWT SECRET");
 
   return ["token" => $jwt];
 }
