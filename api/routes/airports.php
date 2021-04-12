@@ -2,7 +2,7 @@
 
 
 /**
- *     @OA\Post(path="/user/airports", tags={"x-user","airports"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Post(path="/admin/airports", tags={"x-admin","airports"}, security={{"ApiKeyAuth":{}}},
  * @OA\RequestBody(description="Basic airports info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -11,11 +11,11 @@
  *          )
  *     )
  * ),
- *     @OA\Response(response="200", description="List airports for the user.")
+ *     @OA\Response(response="200", description="Add airports for the user.")
  * )
  */ 
 
-Flight::route('POST /user/airports', function() {
+Flight::route('POST /admin/airports', function() {
   $data = Flight::request()->data->getData();
   Flight::json(Flight::Airportsservice()->insert_new_airport("airports", $data)); 
 });
@@ -58,7 +58,7 @@ Flight::route('GET /user/airports/@id', function($airportid) {
 
 
 /**
- *     @OA\Put(path="/user/airports/{id}", tags={"x-user","airports"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Put(path="/admin/airports/{id}", tags={"x-admin","airports"}, security={{"ApiKeyAuth":{}}},
  *     @OA\Parameter(@OA\Schema(type="integer"), in="path", name="airportid", default=1),
  * @OA\RequestBody(description="Basic airport info that is going to be updated", required=true,
  *     @OA\MediaType(mediaType="application/json",
@@ -72,7 +72,7 @@ Flight::route('GET /user/airports/@id', function($airportid) {
  * )
  */ 
 
-Flight::route('PUT /user/airports/@id', function($airportid){
+Flight::route('PUT /admin/airports/@id', function($airportid){
   $data = Flight::request()->data->getData();
   Flight::json(Flight::Airportsservice()->update_airport($airportid, $data)); 
   Flight::json("Succesfully updated airport");
