@@ -1,6 +1,6 @@
 <?php
-/* filter based middleware
-Flight::before('start', function(&$params, &$output){
+//filter based middleware
+/*Flight::before('start', function(&$params, &$output){
     if (Flight::request()->url == '/swagger') return TRUE;
 
     if (str_starts_with(Flight::request()->url , '/accounts/')) return TRUE;

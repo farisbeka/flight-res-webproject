@@ -151,8 +151,8 @@ Flight::route('GET /admin/accounts', function() {
 
   Flight::route('POST /login', function() {
     $data = Flight::request()->data->getData();
-    Flight::accountService()->login($data);
-    Flight::json("You have succesfully logged in!");
+    $response = Flight::accountService()->login($data);
+    Flight::json($response);
   });
 
   /**
