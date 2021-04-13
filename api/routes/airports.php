@@ -25,7 +25,7 @@ Flight::route('POST /admin/airports', function() {
  *     @OA\Parameter(type="integer", in="query", name="offset", default=0, description="Offset for pagination"),
  *     @OA\Parameter(type="integer", in="query", name="limit", default=10, description="Limit for pagination"),
  *     @OA\Parameter(type="string", in="query", name="search", description="Search string for airports"),
- *     @OA\Parameter(type="string", in="query", name="order", default="-id", description="Sorting for return elements. -column_name ascending order by id or +column_name descending order by id"),
+ *     @OA\Parameter(type="string", in="query", name="order", default="-airportid", description="Sorting for return elements. -column_name ascending order by id or +column_name descending order by id"),
  *     @OA\Response(response="200", description="List airports from database")
  * )
  */ 

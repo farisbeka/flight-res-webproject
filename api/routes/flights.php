@@ -6,7 +6,9 @@
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
  *    				 @OA\Property(property="flight-direction", required="true", type="string", example="Paris", description="Direction of the flight."),
- *    				 @OA\Property(property="flight-class", type="string", example="First class", description="Class of the flight."),
+ *    				 @OA\Property(property="airport_id", type="integer", description="ID of the airport."),
+ *     				 @OA\Property(property="flight-class", type="string", example="First class", description="Class of the flight."),
+ *    				 @OA\Property(property="flight-origin", type="string", example="Origin", description="Origin of the flight."),
  *          )
  *     )
  * ),
