@@ -21,6 +21,18 @@ Flight::route('POST /admin/flights', function() {
     Flight::json(Flight::flightService()->insert_new_flight("flights", $data)); 
   });
   
+/**
+ * @OA\Get(path="/user/flights", tags={"x-user","flights"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Parameter(type="integer", in="query", name="offset", default=0, description="Offset for pagination"),
+ *     @OA\Parameter(type="integer", in="query", name="limit", default=10, description="Limit for pagination"),
+ *     @OA\Parameter(type="string", in="query", name="search", description="Search string for flights"),
+ *     @OA\Parameter(type="string", in="query", name="order", default="-flightid", description="Sorting for return elements. -column_name ascending order by id or +column_name descending order by id"),
+ *     @OA\Response(response="200", description="List flights from database")
+ * )
+ */ 
+
+
+
   Flight::route('GET /user/flights', function() {
   
     $offset = Flight::query('offset', 0);
@@ -34,6 +46,13 @@ Flight::route('POST /admin/flights', function() {
   });
   
   
+/**
+ *     @OA\Get(path="/user/flights/{id}", tags={"x-user","flights"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Parameter(type="integer", in="path", name="flightid", default=1, description="ID of flight"),
+ *     @OA\Response(response="200", description="Fetch individual flight")
+ * )
+ */ 
+
   Flight::route('GET /user/flights/@id', function($flightid) {
     Flight::json(Flight::flightService()->get_flight_by_id($flightid));
   });

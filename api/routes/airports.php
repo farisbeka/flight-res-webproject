@@ -1,20 +1,6 @@
 <?php
 
 
-/**
- *     @OA\Post(path="/admin/airports", tags={"x-admin","airports"}, security={{"ApiKeyAuth":{}}},
- * @OA\RequestBody(description="Basic airports info", required=true,
- *     @OA\MediaType(mediaType="application/json",
- *    			@OA\Schema(
- *    				 @OA\Property(property="airport-city", required="true", type="string", example="Paris", description="City of the airport."),
- *    				 @OA\Property(property="airport-name", type="string", example="Paris International Airport", description="Name of the airport."),
- *          )
- *     )
- * ),
- *     @OA\Response(response="200", description="Add airports for the user.")
- * )
- */ 
-
 Flight::route('POST /admin/airports', function() {
   $data = Flight::request()->data->getData();
   Flight::json(Flight::Airportsservice()->insert_new_airport("airports", $data)); 
@@ -56,21 +42,6 @@ Flight::route('GET /user/airports/@id', function($airportid) {
 });
 
 
-
-/**
- *     @OA\Put(path="/admin/airports/{id}", tags={"x-admin","airports"}, security={{"ApiKeyAuth":{}}},
- *     @OA\Parameter(@OA\Schema(type="integer"), in="path", name="airportid", default=1),
- * @OA\RequestBody(description="Basic airport info that is going to be updated", required=true,
- *     @OA\MediaType(mediaType="application/json",
- *    			@OA\Schema(
- *    				 @OA\Property(property="airport-name", required="true", type="string", example="Paris", description="Name of the airport"),
- *    				 @OA\Property(property="airport-city", type="string", example="Paris International Airport", description="City of the airport"),
- *          )
- *     )
- * ),
- *     @OA\Response(response="200", description="Update airport by ID from database")
- * )
- */ 
 
 Flight::route('PUT /admin/airports/@id', function($airportid){
   $data = Flight::request()->data->getData();
