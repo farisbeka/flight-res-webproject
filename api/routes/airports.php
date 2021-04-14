@@ -32,7 +32,7 @@ Flight::route('GET /user/airports', function() {
 
 /**
  *     @OA\Get(path="/user/airports/{id}", tags={"x-user","airports"}, security={{"ApiKeyAuth":{}}},
- *     @OA\Parameter(type="integer", in="path", name="airportid", default=1, description="ID of airport"),
+ *     @OA\Parameter(type="integer", in="path", name="id", default=1, description="ID of airport"),
  *     @OA\Response(response="200", description="Fetch individual airport")
  * )
  */ 

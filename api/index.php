@@ -15,6 +15,8 @@ require_once dirname(__FILE__)."/dao/AccountsDao.class.php";
 require_once dirname(__FILE__)."/services/AccountService.class.php";
 require_once dirname(__FILE__)."/services/AirportsService.class.php";
 require_once dirname(__FILE__)."/services/FlightService.class.php";
+require_once dirname(__FILE__)."/services/BookingService.class.php";
+
 
 
 
@@ -23,12 +25,12 @@ require_once dirname(__FILE__)."/services/FlightService.class.php";
 Flight::set('flight.log_errors', TRUE);
 
  /**Error handling for our API */
- Flight::map('error', function(Exception $ex) {
+ /*Flight::map('error', function(Exception $ex) {
    //header("Content-type: application/json");
    //Flight::halt($ex->getCode(), json_encode(["message" => $ex->getMessage()]));
 
    Flight::json(["message" => $ex->getMessage()],$ex->getCode() ? $ex->getCode() : 500);
- });
+ });*/
 
 
 /**
@@ -63,6 +65,8 @@ Flight::route('GET /', function() {
 Flight::register("accountService","AccountService");
 Flight::register("Airportsservice","AirportsService");
 Flight::register("flightService","flightService");
+Flight::register("bookingService","BookingService");
+
 
 
 
@@ -71,6 +75,9 @@ require_once dirname(__FILE__)."/routes/middleware.php";
 require_once dirname(__FILE__)."/routes/accounts.php";
 require_once dirname(__FILE__)."/routes/airports.php";
 require_once dirname(__FILE__)."/routes/flights.php";
+require_once dirname(__FILE__)."/routes/booking.php";
+require_once dirname(__FILE__)."/routes/payements.php";
+
 
 /**JSON WEB TOKEN::::
  * eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQyIiwicm9sZSI6IlVTRVIifQ.3sGHCXiS_qpYu6BUmwYJYiHJZub8u19ZKqqVCt-mruI

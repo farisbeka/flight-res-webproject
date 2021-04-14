@@ -48,13 +48,15 @@ Flight::route('POST /admin/flights', function() {
   
 /**
  *     @OA\Get(path="/user/flights/{id}", tags={"x-user","flights"}, security={{"ApiKeyAuth":{}}},
- *     @OA\Parameter(type="integer", in="path", name="flightid", default=1, description="ID of flight"),
+ *     @OA\Parameter(type="integer", in="path", name="id", default=1, description="ID of flight"),
  *     @OA\Response(response="200", description="Fetch individual flight")
  * )
  */ 
 
   Flight::route('GET /user/flights/@id', function($flightid) {
-    Flight::json(Flight::flightService()->get_flight_by_id($flightid));
+    Flight::json([
+      'data' => Flight::flightService()->get_flight_by_id($flightid)
+    ]);
   });
   
   

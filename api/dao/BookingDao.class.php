@@ -14,6 +14,11 @@ class BookingDao extends BaseDao{
     {
         return $this->query_unique("SELECT * FROM booking WHERE booking_id=:id", ["id" => $id]);
     }
+
+    public function insert_new_booking($table, $data)
+    {
+        return $this->insert($table, $data);
+    }
 }
 
 ?>
