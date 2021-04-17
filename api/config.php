@@ -12,6 +12,8 @@ class Config {
     const SMTP_PORT = 587;
     const SMTP_USER = "postmaster@mail.bekta.me";
     const SMTP_PASSWORD = "98eb6d6d5835b9cfd39960a27951d813-b6d086a8-147d14d0";
+
+    const JWT_TOKEN_TIME = 604800;
 }
 
 
