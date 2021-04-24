@@ -5,10 +5,10 @@
  * @OA\RequestBody(description="Basic flight info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
- *    				 @OA\Property(property="flight-direction", required="true", type="string", example="Paris", description="Direction of the flight."),
+ *    				 @OA\Property(property="flight_direction", required="true", type="string", example="Paris", description="Direction of the flight."),
  *    				 @OA\Property(property="airport_id", type="integer", description="ID of the airport."),
- *     				 @OA\Property(property="flight-class", type="string", example="First class", description="Class of the flight."),
- *    				 @OA\Property(property="flight-origin", type="string", example="Origin", description="Origin of the flight."),
+ *     				 @OA\Property(property="flight_class", type="string", example="First class", description="Class of the flight."),
+ *    				 @OA\Property(property="flight_origin", type="string", example="Origin", description="Origin of the flight."),
  *          )
  *     )
  * ),
@@ -59,7 +59,23 @@ Flight::route('POST /admin/flights', function() {
     ]);
   });
   
-  
+   /**
+ *     @OA\Put(path="/admin/flights/{id}", tags={"x-admin","flights"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Parameter(@OA\Schema(type="integer"), in="path", name="id", default=1),
+ * @OA\RequestBody(description="Basic flight info that is going to be updated", required=true,
+ *     @OA\MediaType(mediaType="application/json",
+ *    			@OA\Schema(
+ *    				 @OA\Property(property="flight_direction", required="true", type="string", example="Paris", description="Direction of the flight."),
+ *    				 @OA\Property(property="airport_id", type="integer", description="ID of the airport."),
+ *     				 @OA\Property(property="flight_class", type="string", example="First class", description="Class of the flight."),
+ *    				 @OA\Property(property="flight_origin", type="string", example="Origin", description="Origin of the flight."),
+ *          )
+ *     )
+ * ),
+ *     @OA\Response(response="200", description="Update flight by ID from database")
+ * )
+ */ 
+
   Flight::route('PUT /admin/flights/@id', function($flightid){
     $data = Flight::request()->data->getData();
     Flight::json(Flight::flightService()->update_flight($flightid, $data)); 

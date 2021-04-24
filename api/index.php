@@ -80,7 +80,7 @@ require_once dirname(__FILE__)."/routes/payements.php";
 
 
 /**JSON WEB TOKEN::::
- * eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjQyIiwicm9sZSI6IlVTRVIifQ.3sGHCXiS_qpYu6BUmwYJYiHJZub8u19ZKqqVCt-mruI
+*eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2OTQ3NzYsImlkIjoiNDIiLCJyb2xlIjoiQURNSU4ifQ.sVEZJf0HckN1neLm5bHse_9TinQwDWfvl1M1MCgz96c
  */
 
 

@@ -78,13 +78,13 @@ class BaseDao{
         }
         $query = substr($query, 0, -2);
         $query .= ")";
-    
+       
         $stmt= $this->connection->prepare($query);
         $stmt->execute($entity); 
         $entity['id'] = $this->connection->lastInsertId();
         return $entity;
       }
-
+     
       public function execute_update($table, $id, $entity, $id_column = "id"){
         $query = "UPDATE ${table} SET ";
         foreach($entity as $name => $value){
