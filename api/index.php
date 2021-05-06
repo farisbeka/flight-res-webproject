@@ -12,10 +12,12 @@ require_once dirname(__FILE__)."/dao/FlightsDao.class.php";
 require_once dirname(__FILE__)."/dao/BookingDao.class.php";
 require_once dirname(__FILE__)."/dao/AirportsDao.class.php";
 require_once dirname(__FILE__)."/dao/AccountsDao.class.php";
+require_once dirname(__FILE__)."/dao/PayementsDao.class.php";
 require_once dirname(__FILE__)."/services/AccountService.class.php";
 require_once dirname(__FILE__)."/services/AirportsService.class.php";
 require_once dirname(__FILE__)."/services/FlightService.class.php";
 require_once dirname(__FILE__)."/services/BookingService.class.php";
+require_once dirname(__FILE__)."/services/PayementsService.class.php";
 
 
 
@@ -66,6 +68,8 @@ Flight::register("accountService","AccountService");
 Flight::register("Airportsservice","AirportsService");
 Flight::register("flightService","flightService");
 Flight::register("bookingService","BookingService");
+Flight::register("paymentService","PayementsService");
+
 
 
 
@@ -79,9 +83,7 @@ require_once dirname(__FILE__)."/routes/booking.php";
 require_once dirname(__FILE__)."/routes/payements.php";
 
 
-/**JSON WEB TOKEN::::
-*eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTk2OTQ3NzYsImlkIjoiNDIiLCJyb2xlIjoiQURNSU4ifQ.sVEZJf0HckN1neLm5bHse_9TinQwDWfvl1M1MCgz96c
- */
+//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjA5MDY0ODcsImlkIjoiNDIiLCJyb2xlIjoiQURNSU4ifQ.T4S8PejumgoHWadiHHJt6fHjbLZbDOTNA9flPOQ295M
 
 
 //$newinstance = new BaseDao();
