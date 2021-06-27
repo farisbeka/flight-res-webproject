@@ -1,0 +1,129 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Cities</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-city-modal">
+            Add new city
+        </button>
+        <br>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="cities-table" class="table table-striped table-bordered table-hover"
+                                id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>City name</th>
+                                        <th>City ZIP code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>HARIS</td>
+                                        <td>HARIS</td>
+                                        <td>HARIS</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="add-city-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form role="form" id="add-city-form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add new city</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+
+                        <div class="form-group">
+                            <label>City Name</label>
+                            <input class="form-control" type="text" name="city_name" required>
+                            <p class="help-block">Name of the city.</p>
+                        </div>
+                        <div class="form-group">
+                            <label>ZIP code</label>
+                            <input name="zipcode" type="number" class="form-control" required>
+                            <p class="help-block">ZIP code of the city.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $("#add-city-form").validate({
+        submitHandler: function (form, event) {
+            event.preventDefault();
+            console.log(JSONIZE_form($(form)));
+            addCity(JSONIZE_form($(form)));
+        }
+    });
+
+
+    function addCity(city) {
+        $.ajax({
+            url: "api/admin/cities",
+            type: "POST",
+            data: city,
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', localStorage.getItem("token")); },
+            success: function (data) {
+                toastr.success("City added!");
+                getCities();
+                $('#add-city-form').trigger("reset");
+                $('#add-city-modal').modal("hide");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR);
+                toastr.error("Error occured! Try again!");
+            }
+        });
+    }
+
+    getCities();
+
+    function getCities() {
+
+        $.ajax({
+            url: "api/cities?order=" + encodeURIComponent("+id"),
+            type: "GET",
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', localStorage.getItem("token")); },
+            success: function (data) {
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html += '<tr class="odd gradeX">'
+                        + '<td>' + data[i].id + '</td>'
+                        + '<td>' + data[i].city_name + '</td>'
+                        + '<td>' + data[i].zipcode + '</td></tr>';
+                }
+                $('#cities-table tbody').html(html);
+                $('#cities-table').DataTable();
+            }
+        });
+    };
+</script>

@@ -1,52 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>HTML5</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/css/jQuerySPApp.css" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Flight Reservation Panel</title>
+
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="./assets/css/timeline.css" rel="stylesheet" />
+    <link href="./assets/css/startmin.css" rel="stylesheet" />
+    <link href="./assets/css/morris.css" rel="stylesheet" />
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/jQuerySPApp.css" />
+    <link
+      href="./assets/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/css/dataTables/dataTables.bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/css/dataTables/dataTables.responsive.css"
+    />
   </head>
 
-  <body>
-    <nav role="navigation">
-      <ul>
-        <li><a href="#view_1">go to view 1</a></li>
-        <li><a href="#view_2">go to view 2</a></li>
-        <li><a href="#view_3">go to view 3</a></li>
-      </ul>
-    </nav>
+  <body style="display: none">
+    <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Startmin</a>
+        </div>
 
-    <main id="jqueryspapp" role="main">
-      <section id="view_1" data-load="view_1.html" ></section>
-      <section id="view_2"></section>
-      <section id="view_3"><h1>view 3</h1></section>
-      <section id="error_404"><h1>Page not found</h1></section>
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target=".navbar-collapse"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-    </main>
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+          <li>
+            <a href="#"><i class="fa fa-home fa-fw"></i> Website</a>
+          </li>
+        </ul>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="assets/js/jQuerySPApp.js"></script>
+        <ul class="nav navbar-right navbar-top-links">
+          <li class="dropdown navbar-inverse">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-comment fa-fw"></i> New Comment
+                    <span class="pull-right text-muted small"
+                      >4 minutes ago</span
+                    >
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted small"
+                      >12 minutes ago</span
+                    >
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                    <span class="pull-right text-muted small"
+                      >4 minutes ago</span
+                    >
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-tasks fa-fw"></i> New Task
+                    <span class="pull-right text-muted small"
+                      >4 minutes ago</span
+                    >
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                    <span class="pull-right text-muted small"
+                      >4 minutes ago</span
+                    >
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a class="text-center" href="#">
+                  <strong>See All Alerts</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li>
+                <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a id="logoutButton" onclick="doLogout()" href="login.html"
+                  ><i class="fa fa-sign-out fa-fw"></i> Logout</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- /.navbar-top-links -->
 
+        <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search..."
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+                <!-- /input-group -->
+              </li>
+              <li>
+                <a href="#dashboard" class="active"
+                  ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span
+                    class="fa arrow"
+                  ></span
+                ></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="flot.html">Flot Charts</a>
+                  </li>
+                  <li>
+                    <a href="morris.html">Morris.js Charts</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="#posts"><i class="fa fa-table fa-fw"></i> Posts</a>
+              </li>
+              <li>
+                <a href="#tables"><i class="fa fa-table fa-fw"></i> Tables</a>
+              </li>
+              <li>
+                <a href="#cities"><i class="fa fa-table fa-fw"></i> Cities</a>
+              </li>
+              <li>
+                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-wrench fa-fw"></i> UI Elements<span
+                    class="fa arrow"
+                  ></span
+                ></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="panels-wells.html">Panels and Wells</a>
+                  </li>
+                  <li>
+                    <a href="buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="#notifications">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="typography.html">Typography</a>
+                  </li>
+                  <li>
+                    <a href="icons.html"> Icons</a>
+                  </li>
+                  <li>
+                    <a href="grid.html">Grid</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
+                    class="fa arrow"
+                  ></span
+                ></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="#">Second Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Second Level Item</a>
+                  </li>
+                  <li>
+                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                    <ul class="nav nav-third-level">
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                        <a href="#">Third Level Item</a>
+                      </li>
+                    </ul>
+                    <!-- /.nav-third-level -->
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fa fa-files-o fa-fw"></i> Sample Pages<span
+                    class="fa arrow"
+                  ></span
+                ></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <a href="blank.html">Blank Page</a>
+                  </li>
+                  <li>
+                    <a href="login.html">Login Page</a>
+                  </li>
+                </ul>
+                <!-- /.nav-second-level -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- /#page-wrapper -->
+
+      <main id="jqueryspapp" role="main">
+        <section id="dashboard" data-load="dashboard.html"></section>
+        <section id="tables" data-load="tables.html"></section>
+        <section id="notifications" data-load="notifications.html"></section>
+        <section id="posts" data-load="posts.html"></section>
+        <section id="cities" data-load="cities.html"></section>
+      </main>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/metisMenu.min.js"></script>
+    <script src="./assets/js/utilities.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./assets/js/jQuerySPApp.js"></script>
+    <script src="./assets/js/startmin.js"></script>
+    <script src="./assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="./assets/js/dataTables/dataTables.bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var app = $.jQuerySPApp({ defaultView: "dashboard" });
+        // run app
+        app.run();
+
+        if (!window.localStorage.getItem("token")) {
+          window.location = "login.html";
+          toastr.success("Logged in!");
+        } else {
+          $("body").show();
+        }
+      });
+      function doLogout() {
+        window.localStorage.clear();
+        window.location = "login.html";
+      }
+    </script>
   </body>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var app = $.jQuerySPApp({defaultView  : "view_1"}); // initialize
-
-      // define routes
-      app.route({
-        view: 'view_1',
-        onCreate: function() { $("#view_1").append($.now()+': Written on create<br/>'); },
-        onReady: function() { $("#view_1").append($.now()+': Written when ready<br/>'); }
-      });
-      app.route({view: 'view_2', load: 'view_2.html' });
-      app.route({
-        view: 'view_3',
-        onCreate: function() { $("#view_3").append("I'm the third view"); }
-      });
-
-      // run app
-      app.run();
-    });
-  </script>
-
 </html>
