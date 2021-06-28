@@ -36,8 +36,13 @@ class BaseDao{
     {
         $this->table=$table;
                 try {
-        $this->connection = new PDO("mysql:host=" .Config::DB_HOST. ";dbname=".Config::DB_SCHEME,Config::DB_USERNAME,Config::DB_PASSWORD);
-        
+                  if (getenv("HEROKU")){
+        $this->connection = new PDO("mysql:host=" .getenv("DB_HOST"). ";dbname=".getenv("DB_SCHEME"),getenv("DB_USERNAME"),getenv("DB_PASSWORD"));
+
+                  } else{
+                              $this->connection = new PDO("mysql:host=" .Config::DB_HOST. ";dbname=".Config::DB_SCHEME,Config::DB_USERNAME,Config::DB_PASSWORD);
+
+                  }        
         // Error exceptions
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
