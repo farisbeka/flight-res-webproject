@@ -1,10 +1,11 @@
 <?php
 
-class Config {
+class Config
+{
 
     const DB_HOST = "localhost";
-    const DB_USERNAME= "root";
-    const DB_PASSWORD= "risfakralj1";
+    const DB_USERNAME = "root";
+    const DB_PASSWORD = "risfakralj1";
     const DB_SCHEME = "flight_reservation";
     const DATE_FORMAT = "Y-m-d H:i:s";
 
@@ -15,10 +16,4 @@ class Config {
 
     const JWT_TOKEN_TIME = 604800;
 
-
-
-
 }
-
-
-?>

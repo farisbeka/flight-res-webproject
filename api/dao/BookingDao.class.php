@@ -1,16 +1,17 @@
 <?php
 
-require_once dirname(__FILE__)."/BaseDao.class.php";
+require_once dirname(__FILE__) . "/BaseDao.class.php";
 
-class BookingDao extends BaseDao{
+class BookingDao extends BaseDao
+{
 
     public function __construct()
     {
         parent::__construct("booking");
     }
 
-
-    public function get_booking() {
+    public function get_booking()
+    {
 
         return $this->query("SELECT * FROM booking", []);
     }
@@ -25,23 +26,23 @@ class BookingDao extends BaseDao{
         return $this->query_unique("SELECT * FROM booking WHERE id=:id", ["id" => $id]);
     }
 
-    public function update_booking($id, $booking) {
+    public function update_booking($id, $booking)
+    {
         $this->update("booking", $id, $booking);
     }
 
-    public function execute_update($table, $id, $entity, $id_column = "id"){
+    public function execute_update($table, $id, $entity, $id_column = "id")
+    {
         $query = "UPDATE ${table} SET ";
-        foreach($entity as $name => $value){
-          $query .= $name ."= :". $name. ", ";
+        foreach ($entity as $name => $value) {
+            $query .= $name . "= :" . $name . ", ";
         }
         $query = substr($query, 0, -2);
         $query .= " WHERE ${id_column} = :id";
-    
-        $stmt= $this->connection->prepare($query);
+
+        $stmt = $this->connection->prepare($query);
         $entity['id'] = $id;
         $stmt->execute($entity);
-      }
+    }
 
 }
-
-?>

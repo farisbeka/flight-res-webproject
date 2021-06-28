@@ -1,8 +1,9 @@
 <?php
 
-require_once dirname(__FILE__)."/BaseDao.class.php";
+require_once dirname(__FILE__) . "/BaseDao.class.php";
 
-class AirportsDao extends BaseDao{
+class AirportsDao extends BaseDao
+{
 
     public function __construct()
     {
@@ -24,35 +25,34 @@ class AirportsDao extends BaseDao{
         return $this->insert($table, $data);
     }
 
-    public function get_airports($search, $offset, $limit, $order){
+    public function get_airports($search, $offset, $limit, $order)
+    {
 
         list($order_column, $order_direction) = self::parse_order($order);
 
-
-        return $this->query("SELECT * FROM airports 
+        return $this->query("SELECT * FROM airports
                              ORDER BY ${order_column} ${order_direction}
-                             LIMIT ${limit} OFFSET ${offset}", 
-                             ["airport_name"=>strtolower($search)]);
+                             LIMIT ${limit} OFFSET ${offset}",
+            ["airport_name" => strtolower($search)]);
     }
 
-    public function update_airport($airportid, $airports) {
+    public function update_airport($airportid, $airports)
+    {
         $this->update("airports", $airportid, $airports);
     }
 
-    public function execute_update($table, $id, $entity, $id_column = "airportid"){
+    public function execute_update($table, $id, $entity, $id_column = "airportid")
+    {
         $query = "UPDATE ${table} SET ";
-        foreach($entity as $name => $value){
-          $query .= $name ."= :". $name. ", ";
+        foreach ($entity as $name => $value) {
+            $query .= $name . "= :" . $name . ", ";
         }
         $query = substr($query, 0, -2);
         $query .= " WHERE ${id_column} = :id";
-    
-        $stmt= $this->connection->prepare($query);
+
+        $stmt = $this->connection->prepare($query);
         $entity['id'] = $id;
         $stmt->execute($entity);
-      }
+    }
 
 }
-
-
-?>
