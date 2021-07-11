@@ -14,13 +14,7 @@ class flightService extends BaseService
 
     public function get_flights($search, $offset, $limit, $order)
     {
-        if ($search) {
-            return $this->dao->get_flights($search, $offset, $limit, $order);
-
-        } else {
-            return $this->dao->get_all($offset, $limit, $order);
-        }
-
+        return $this->dao->get_flights($search, $offset, $limit, $order);
     }
 
     public function get_flight_by_id($id)

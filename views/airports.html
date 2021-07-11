@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label>Airport city</label>
-                            <input name="zipcode" type="number" class="form-control" required>
+                            <input name="zipcode" type="text" class="form-control" required>
                             <p class="help-block">City of the airport.</p>
                         </div>
                     </div>
@@ -94,9 +94,7 @@
             beforeSend: function (xhr) { xhr.setRequestHeader('Authentication', localStorage.getItem("token")); },
             success: function (data) {
                 toastr.success("Airport added!");
-                getCities();
-                $('#add-airport-form').trigger("reset");
-                $('#add-airport-modal').modal("hide");
+                getAirports();
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR);
@@ -105,9 +103,9 @@
         });
     }
 
-    getCities();
+    getAirports();
 
-    function getCities() {
+    function getAirports() {
 
         $.ajax({
             url: "api/user/airports",
