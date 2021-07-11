@@ -18,15 +18,13 @@ class BaseDao
 
     public static function parse_order($order)
     {
-
         switch (substr($order, 0, 1)) {
             case '-':$order_direction = "ASC";
                 break;
             case '+':$order_direction = "DESC";
                 break;
-            default:throw new Exception("Invalid order format. First character should be either - or +");
+            default:throw new Exception("Invalid order format. First character should be either + or -");
                 break;
-
         };
 
         $order_column = substr($order, 1);

@@ -318,6 +318,7 @@
         $.post("api/login", JSONIZE_form("#login-form-form"))
           .done(function (data) {
             window.localStorage.setItem("token", data.token);
+            console.log(data.token);
             window.location = "index.html";
             toastr.success("Logged in!");
           })
