@@ -300,33 +300,40 @@
       }
 
       function registerUser() {
-        $("#registerbutton").prop("disabled", true);
-        $.post("api/register", JSONIZE_form("#register-form-form"))
-          .done(function (data) {
-            $("#register-form").addClass("hidden");
-            $("#form-alert").removeClass("hidden");
-            $("#form-alert .alert").html(data.message);
-          })
-          .fail(function (error) {
-            $("#registerbutton").prop("disabled", false);
-            alert(error.responseJSON.message);
-          });
-      }
+            $('#registerbutton').prop('disabled', true);
+            $.post("api/register", Utilities.JSONIZE_form('#register-form-form'))
+                .done(function (data) {
+                    $('#register-form').addClass("hidden");
+                    $('#form-alert').removeClass("hidden");
+                    $('#form-alert .alert').html(data.message);
+                }).fail(function (error) {
+                    $('#registerbutton').prop('disabled', false);
+                    alert(error.responseJSON.message);
+                });
+
+        };
 
       function loginUser() {
-        $("#loginbutton").prop("disabled", true);
-        $.post("api/login", JSONIZE_form("#login-form-form"))
-          .done(function (data) {
-            window.localStorage.setItem("token", data.token);
-            console.log(data.token);
-            window.location = "index.html";
-            toastr.success("Logged in!");
-          })
-          .fail(function (error) {
-            $("#loginbutton").prop("disabled", false);
-            toastr.error(error.responseJSON.message);
-          });
-      }
+            $('#loginbutton').prop('disabled', true);
+            $.post("api/login", Utilities.JSONIZE_form('#login-form-form'))
+                .done(function (data) {
+                    window.localStorage.setItem("token", data.token);
+                    var user_info = Utilities.parse_jwt(window.localStorage.getItem("token"));
+                    if (user_info.role == "ADMIN") {
+                        window.location = "index.html";
+                        toastr.success("Logged in!");
+                    }
+                    else {
+                        window.location = "index2.html";
+                        toastr.success("Logged in!");
+                    }
+
+                }).fail(function (error) {
+                    $('#loginbutton').prop('disabled', false);
+                    toastr.error(error.responseJSON.message);
+                });
+
+        }
     </script>
   </body>
 </html>

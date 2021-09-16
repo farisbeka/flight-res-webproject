@@ -79,6 +79,7 @@ Flight::route('POST /admin/accounts', function () {
  *                @OA\Schema(
  *                     @OA\Property(property="username", required="true", type="string", example="Beka", description="Name of the account"),
  *                     @OA\Property(property="email", type="string", example="faris@bekta.me", description="Email of the account"),
+ *                     @OA\Property(property="status", type="string", example="BLOCKED", description="Status of the account"),
  *                     @OA\Property(property="password", type="string", example="", description="Password of the account"),
  *          )
  *     )

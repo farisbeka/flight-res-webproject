@@ -10,6 +10,11 @@ class FlightsDao extends BaseDao
         parent::__construct("flights");
     }
 
+    public function delete_flight($id)
+    {
+        return $this->query_unique("DELETE FROM flights WHERE flightid=:id", ["id" => $id]);
+    }
+
     public function get_flight_by_id($id)
     {
         return $this->query_unique("SELECT * FROM flights WHERE flightid=:id", ["id" => $id]);

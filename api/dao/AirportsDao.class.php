@@ -15,6 +15,11 @@ class AirportsDao extends BaseDao
         return $this->query_unique("SELECT * FROM airports WHERE airportid=:id", ["id" => $id]);
     }
 
+    public function delete_airport($id)
+    {
+        return $this->query_unique("DELETE FROM airports WHERE airportid=:id", ["id" => $id]);
+    }
+
     public function return_airport_by_city($city)
     {
         return $this->query_unique("SELECT * FROM airports WHERE airport_city=:city", ["city" => $city]);

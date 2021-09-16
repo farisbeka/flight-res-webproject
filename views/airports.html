@@ -24,6 +24,7 @@
                                         <th>ID</th>
                                         <th>Airport city</th>
                                         <th>Airport name</th>
+                                        <th>DELETE</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,19 +57,19 @@
 
                         <div class="form-group">
                             <label>Airport Name</label>
-                            <input class="form-control" type="text" name="airport_name" required>
+                            <input id='airName' class="form-control" type="text" name="airport_name" required>
                             <p class="help-block">Name of the airport.</p>
                         </div>
                         <div class="form-group">
                             <label>Airport city</label>
-                            <input name="zipcode" type="text" class="form-control" required>
+                            <input id='airCity' name="zipcode" type="text" class="form-control" required>
                             <p class="help-block">City of the airport.</p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-default" data-dismiss="modal">Save changes</button>
+                    <button type="submit" class="btn btn-default" data-dismiss="modal" onclick="addAirport();">Save changes</button>
                 </div>
             </form>
         </div>
@@ -80,27 +81,33 @@
     $("#add-airport-form").validate({
         submitHandler: function (form, event) {
             event.preventDefault();
-            console.log(JSONIZE_form($(form)));
-            addAirport(JSONIZE_form($(form)));
+            console.log(utilities.JSONIZE_form($(form)));
+            addAirport(utilities.JSONIZE_form($(form)));
         }
     });
 
 
-    function addAirport(airport) {
-        $.ajax({
-            url: "api/admin/airports",
-            type: "POST",
-            data: airport,
-            beforeSend: function (xhr) { xhr.setRequestHeader('Authentication', localStorage.getItem("token")); },
-            success: function (data) {
-                toastr.success("Airport added!");
-                getAirports();
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR);
-                toastr.error("Error occured! Try again!");
-            }
+    function addAirport() {
+        /*RestClient.post("api/admin/airports", airport, function (data) {
+            toastr.success("Airport added!");
+            getAirports();
+            $('#add-airport-form').trigger("reset");
+            $('#add-airport-modal').modal("hide");
+        });*/
+
+        var airport_info = {
+            'airport_name' : $('#airName').val(),
+            'airport_city' : $('#airCity').val()
+        }
+        $.post("api/airports", airport_info).done(function(data){
+            console.log(data);
+            window.location.reload();
+            toastr.error('Succesfully added airport!');
+        }).fail(function(error){
+          
+          toastr.error('Failed to add airport!');
         });
+    
     }
 
     getAirports();
@@ -117,11 +124,31 @@
                     html += '<tr class="odd gradeX">'
                         + '<td>' + data[i].airportid + '</td>'
                         + '<td>' + data[i].airport_city + '</td>'
-                        + '<td>' + data[i].airport_name + '</td></tr>';
+                        + '<td>' + data[i].airport_name + '</td>'
+                        + '<td><button type="submit" class="btn btn-danger" onclick="DeleteAirport('+data[i].airportid+');">DELETE</button></td></tr>';
                 }
                 $('#airports-table tbody').html(html);
                 $('#airports-table').DataTable();
             }
         });
     };
+    
+
+    function DeleteAirport(id){
+        $.ajax({
+      url: 'api/admin/airports/'+id,
+      type: 'DELETE',
+      beforeSend: function(xhr){xhr.setRequestHeader('Authentication', localStorage.getItem('token'));},
+      success: function(data){
+        window.location.reload();
+        toastr.error('Succesfully deleted an article!');
+       
+      },
+      error: function(jqXHR, textStatus, errorThrown ){
+            window.location.reload();
+         }
+
+    });
+  }
+    
 </script>

@@ -27,8 +27,22 @@ class flightService extends BaseService
         $this->dao->update($flightid, $flights);
     }
 
+    public function delete_flight($id)
+    {
+        $this->dao->delete_flight($id);
+    }
+
     public function insert_new_flight($table, $data)
     {
-        return $this->dao->insert($table, $data);
+        try {
+            return $this->dao->insert($table, $data);
+        } catch (\Exception$e) {
+            if (str_contains($e->getMessage(), 'airport_id_key')) {
+                throw new Exception("Airport does not exist", 400, $e);
+            } else {
+                throw $e;
+            }
+        }
+
     }
 }

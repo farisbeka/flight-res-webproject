@@ -39,7 +39,7 @@ class AccountService extends BaseService
             $account = $this->dao->add([
                 "username" => $account['username'],
                 "email" => $account['email'],
-                "password" => md5($account['password']),
+                "password" => $account['password'],
                 "token" => md5(random_bytes(16)),
             ]);
             print_r($account);
@@ -87,7 +87,7 @@ class AccountService extends BaseService
             throw new Exception("Account not active", 400);
         }
 
-        if ($db_account['password'] != md5($account['password'])) {
+        if ($db_account['password'] != $account['password']) {
             throw new Exception("Invalid password", 400);
         }
 

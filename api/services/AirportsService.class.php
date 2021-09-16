@@ -29,6 +29,11 @@ class Airportsservice extends BaseService
 
     }
 
+    public function delete_airport($id)
+    {
+        $this->dao->delete_airport($id);
+    }
+
     public function update_airport($airportid, $airports)
     {
         $this->dao->update($airportid, $airports);

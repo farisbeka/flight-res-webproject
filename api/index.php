@@ -19,15 +19,10 @@ require_once dirname(__FILE__) . "/services/FlightService.class.php";
 require_once dirname(__FILE__) . "/services/BookingService.class.php";
 require_once dirname(__FILE__) . "/services/PayementsService.class.php";
 
-Flight::set('flight.log_errors', true);
-
 /**Error handling for our API */
-/*Flight::map('error', function(Exception $ex) {
-//header("Content-type: application/json");
-//Flight::halt($ex->getCode(), json_encode(["message" => $ex->getMessage()]));
-
-Flight::json(["message" => $ex->getMessage()],$ex->getCode() ? $ex->getCode() : 500);
-});*/
+Flight::map('error', function (Exception $ex) {
+    Flight::json(["message" => $ex->getMessage()], 500);
+});
 
 /**
  * utility func for reading query parameters from url

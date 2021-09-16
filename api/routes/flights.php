@@ -16,7 +16,7 @@
  * )
  */
 
-Flight::route('POST /admin/flights', function () {
+Flight::route('POST /flights', function () {
     $data = Flight::request()->data->getData();
     Flight::json(Flight::flightService()->insert_new_flight("flights", $data));
 });
@@ -76,4 +76,15 @@ Flight::route('PUT /admin/flights/@id', function ($flightid) {
     $data = Flight::request()->data->getData();
     Flight::json(Flight::flightService()->update_flight($flightid, $data));
     Flight::json("Succesfully updated flight");
+});
+
+/**
+ *     @OA\Delete(path="/admin/airports/{id}", tags={"x-user","airports"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Parameter(type="integer", in="path", name="id", default=1, description="ID of airport"),
+ *     @OA\Response(response="200", description="Fetch individual airport")
+ * )
+ */
+
+Flight::route('DELETE /admin/flights/@id', function ($id) {
+    Flight::json(Flight::flightService()->delete_flight($id));
 });

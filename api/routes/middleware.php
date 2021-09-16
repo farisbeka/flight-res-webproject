@@ -23,7 +23,7 @@ Flight::route('/user/*', function () {
     $token = @$headers['Authentication'];
 
     try {
-        $account = (array) \Firebase\JWT\JWT::decode($token, "JWT SECRET", ["HS256"]);
+        $account = (array) \Firebase\JWT\JWT::decode($token, Config::JWT_SECRET, ["HS256"]);
         if (Flight::request()->method != "GET" && $account['role'] == "USER_READ_ONLY") {
             throw new Exception("Read only user can't change anything", 403);
         }
@@ -39,7 +39,7 @@ Flight::route('/admin/*', function () {
     $headers = getallheaders();
     $token = @$headers['Authentication'];
     try {
-        $account = (array) \Firebase\JWT\JWT::decode($token, "JWT SECRET", ["HS256"]);
+        $account = (array) \Firebase\JWT\JWT::decode($token, Config::JWT_SECRET, ["HS256"]);
         if ($account['role'] != "ADMIN") {
             throw new Exception("Admin access required", 403);
         }
