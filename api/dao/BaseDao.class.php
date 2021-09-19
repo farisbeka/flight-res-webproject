@@ -94,8 +94,6 @@ class BaseDao
 
     protected function execute_update($table, $id, $entity, $id_column = "id")
     {
-        print_r($entity);
-        die;
         $query = "UPDATE ${table} SET  ";
         foreach ($entity as $name => $value) {
             $query .= $name . "= :" . $name . ", ";

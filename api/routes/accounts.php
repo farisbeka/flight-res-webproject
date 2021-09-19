@@ -91,6 +91,7 @@ Flight::route('POST /admin/accounts', function () {
 Flight::route('PUT /admin/accounts/@id', function ($id) {
     $data = Flight::request()->data->getData();
     Flight::json(Flight::accountService()->update($id, $data));
+
 });
 
 /**

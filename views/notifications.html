@@ -4,6 +4,9 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Accounts</h1>
             </div>
+            <div class="col-lg-12">
+                <h3 class="page-header">All the information about registered users: </h1>
+            </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
@@ -33,6 +36,9 @@
                             </table>
                         </div>
                         <div>
+                            <div class="col-lg-12">
+                <h4 class="page-header">For updating users Status, populate fields: </h1>
+            </div>
                             <form>
                                 <label for="ID"> User ID</label>
                                 <input type="text" id="ID" required>
@@ -75,6 +81,8 @@
                     });
                 };
 
+                
+
                 function UpdateStatus(){
                    
                     user = {
@@ -84,21 +92,20 @@
                     console.log(user);
                     
                       $.ajax({
-                        url: "api/admin/accounts/" + user.id,
-                        type: "PUT",
-                        dataType: "json",
-                        data: {"status": user.status}
-,
-                        
-                        beforeSend: function(xhr){xhr.setRequestHeader('Authentication', localStorage.getItem("token"));},
-                        success: function(data) {
-                            toastr.success("User has been updated");
-           
-                        },
-                        error: function(jqXHR, textStatus, errorThrown ){
-                            
-                        }
-                        });
+      url: "api/admin/accounts/" + user.id,
+      type: "PUT",
+      data: JSON.stringify({ status: user.status }),
+      dataType: "json",
+      contentType: "application/json",
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authentication", localStorage.getItem("token"));
+      },
+      success: function (data) {
+        toastr.success("User has been updated");
+        getAccounts();
+      },
+      error: function (jqXHR, textStatus, errorThrown) {},
+    });
                 }
                 
 </script>
