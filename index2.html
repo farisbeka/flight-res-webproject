@@ -31,31 +31,60 @@
 
 <body>
 
-    
+
     <section class="banner" id="top">
+                
+              
+
         <div class="container">
+
+            <div style="display: flex; justify-content:end; padding-top: 15px; padding-left: 15px; color: gray; ">
+                <!--<button type="button" class="btn btn-light">Light</button>-->
+                <a id="logoutButton" onclick="doLogout()" href="login.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" style="border: none; background-color: gray;"
+                  ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </div>
             <div class="row">
                 <div class="col-md-5">
                     <div class="left-side">
                         <div class="logo">
                             <img src="img/logo.png" alt="Flight Template">
-                            
-
-                            <li>
-                <a id="logoutButton" onclick="doLogout()" href="login.html"
-                  ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-              </li>
+                        
 
 
               
                         </div>
-                        <div class="tabs-content">
+                        <div class="tabs-content" style="margin-right: 30px;">
                             <h4>Choose Your Direction:</h4>
-                            <ul class="social-links">
-                                <li><a href="https://www.facebook.com/myfockingeyes/">Find us on <em>Facebook</em><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="http://youtube.com">Our <em>YouTube</em> Channel<i class="fa fa-youtube"></i></a></li>
-                                <li><a href="http://instagram.com">Follow our <em>instagram</em><i class="fa fa-instagram"></i></a></li>
-                            </ul>
+                            <table id="airports-table" class="table" style="color: white;">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Direction</th>
+      <th scope="col">Class</th>
+      <th scope="col">Origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
                         </div>
                         <div class="page-direction-button">
                             <a href="contact.html"><i class="fa fa-phone"></i>Contact Us Now</a>
@@ -155,7 +184,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Check Weather For 5 NEXT Days</h2>
+                        <h2>Check Weather For 5 next days in Bosnia: </h2>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -177,7 +206,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Myanmar</h6>
+                                                        <h6>Sarajevo</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-03.png" alt="">
                                                         </div>
@@ -192,7 +221,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Thailand</h6>
+                                                        <h6>Tuzla</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-02.png" alt="">
                                                         </div>
@@ -207,7 +236,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>India</h6>
+                                                        <h6>Mostar</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-01.png" alt="">
                                                         </div>
@@ -226,7 +255,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Myanmar</h6>
+                                                        <h6>Sarajevo</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-02.png" alt="">
                                                         </div>
@@ -241,7 +270,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Thailand</h6>
+                                                        <h6>Tuzla</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-03.png" alt="">
                                                         </div>
@@ -256,7 +285,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>India</h6>
+                                                        <h6>Mostar</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-01.png" alt="">
                                                         </div>
@@ -275,7 +304,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Myanmar</h6>
+                                                        <h6>Sarajevo</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-03.png" alt="">
                                                         </div>
@@ -290,7 +319,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Thailand</h6>
+                                                        <h6>Tuzla</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-01.png" alt="">
                                                         </div>
@@ -305,7 +334,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>India</h6>
+                                                        <h6>Mostar</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-02.png" alt="">
                                                         </div>
@@ -324,7 +353,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Myanmar</h6>
+                                                        <h6>Sarajevo</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-01.png" alt="">
                                                         </div>
@@ -339,7 +368,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Thailand</h6>
+                                                        <h6>Tuzla</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-02.png" alt="">
                                                         </div>
@@ -354,7 +383,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>India</h6>
+                                                        <h6>Mostar</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-03.png" alt="">
                                                         </div>
@@ -373,7 +402,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Myanmar</h6>
+                                                        <h6>Sarajevo</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-03.png" alt="">
                                                         </div>
@@ -388,7 +417,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>Thailand</h6>
+                                                        <h6>Tuzla</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-02.png" alt="">
                                                         </div>
@@ -403,7 +432,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="weather-item">
-                                                        <h6>India</h6>
+                                                        <h6>Mostar</h6>
                                                         <div class="weather-icon">
                                                             <img src="img/weather-icon-01.png" alt="">
                                                         </div>
@@ -429,37 +458,6 @@
     </div>
 
 
-    <section class="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-item first-service">
-                        <div class="service-icon"></div>
-                        <h4>Easy Tooplate</h4>
-                        <p>Donec varius porttitor iaculis. Integer sollicitudin erat et ligula viverra vulputate. In in quam efficitur, pulvinar justo ut, tempor nunc. Phasellus pharetra quis odio.</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-item second-service">
-                        <div class="service-icon"></div>
-                        <h4>Unique Ideas</h4>
-                        <p>Cras ligula diam, tristique at aliquam at, fermentum auctor turpis. Proin leo massa, iaculis elementum massa et, consectetur varius dolor. Fusce sed ipsum sit.</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-item third-service">
-                        <div class="service-icon"></div>
-                        <h4>Best Support</h4>
-                        <p>Fusce leo dui. Mauris et justo eget arcu ultricies porta. Nulla facilisi. Nulla nec risus sit amet magna hendrerit venenatis. Sed porta tincidunt lectus eget ultrices.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     
     <div class="tabs-content" id="recommended-hotel">
@@ -467,14 +465,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Recommended Hotel For You</h2>
+                        <h2>Recommended Hotels For You</h2>
                     </div>
                 </div>
                 <div class="wrapper">
                     <div class="col-md-4">
                             <ul class="tabs clearfix" data-tabgroup="third-tab-group">
-                                <li><a href="#livingroom" class="active">Living Room <i class="fa fa-angle-right"></i></a></li>
-                                <li><a href="#suitroom">Suit Room <i class="fa fa-angle-right"></i></a></li>
                                 <li><a href="#swimingpool">Swiming Pool <i class="fa fa-angle-right"></i></a></li>
                                 <li><a href="#massage">Massage Service <i class="fa fa-angle-right"></i></a></li>
                                 <li><a href="#fitness">Fitness Life <i class="fa fa-angle-right"></i></a></li>
@@ -486,8 +482,7 @@
                         <section id="third-tab-group" class="recommendedgroup">
                             <div id="livingroom">
                                 <div class="text-content">
-                                    <iframe width="100%" height="400px" src="https://www.youtube.com/embed/rMxTreSFMgE">
-                                    </iframe>
+                                    <img src="img/hotel.jpg" alt="">
                                 </div>
                             </div>
                             <div id="suitroom">
@@ -526,45 +521,45 @@
                                 </div>
                             </div>
                             <div id="swimingpool">
-                                <img src="img/swiming-pool.jpg" alt="">
+                                <img src="img/bazen.jpg" alt="">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-content">
-                                            <h4>Lovely View Swiming Pool For Special Guests</h4>
-                                            <span>Victoria Resort and Spa</span>
+                                            <h4>Lovely Swiming Pool For Special Guests</h4>
+                                            <span>Swissotel Sarajevo</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div id="massage">
-                                <img src="img/massage-service.jpg" alt="">
+                                <img src="img/masaza.jpg" alt="">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-content">
-                                            <h4>Perfect Place For Relaxation</h4>
-                                            <span>Napali Beach</span>
+                                            <h4>Perfect Place For Massage</h4>
+                                            <span>Hotel Hills Sarajevo</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div id="fitness">
-                                <img src="img/fitness-service.jpg" alt="">
+                                <img src="img/teretana.jpg" alt="">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-content">
-                                            <h4>Insane Street Workout</h4>
-                                            <span>Hua Hin Beach</span>
+                                            <h4>Insane Place for Workout</h4>
+                                            <span>Malak Regency Sarajevo</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div id="event">
-                                <img src="img/evening-event.jpg" alt="">
+                                <img src="img/sloga.jpg" alt="">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-content">
-                                            <h4>Finest Winery Night</h4>
-                                            <span>Queen Restaurant</span>
+                                            <h4>Perfect place to party</h4>
+                                            <span>Sloga Sarajevo</span>
                                         </div>
                                     </div>
                                 </div>
@@ -584,98 +579,98 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Most Visited Places</h2>
+                        <h2>Most Visited Places in Bosnia</h2>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div id="owl-mostvisited" class="owl-carousel owl-theme">
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-01.jpg" alt="">
+                                <img src="img/stari-most.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>River Views</h4>
-                                    <span>New York</span>
+                                    <h4>Stari Most</h4>
+                                    <span>Mostar</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-02.jpg" alt="">
+                                <img src="img/sebilj.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Lorem ipsum dolor</h4>
-                                    <span>Tokyo</span>
+                                    <h4>Sebilj</h4>
+                                    <span>Sarajevo</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-03.jpg" alt="">
+                                <img src="img/vidikovac.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Proin dignissim</h4>
-                                    <span>Paris</span>
+                                    <h4>Vidikovac</h4>
+                                    <span>Sarajevo</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-04.jpg" alt="">
+                                <img src="img/zipline.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Fusce sed ipsum</h4>
-                                    <span>Hollywood</span>
+                                    <h4>Zipline</h4>
+                                    <span>Mostar</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-02.jpg" alt="">
+                                <img src="img/piramide.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Vivamus egestas</h4>
-                                    <span>Tokyo</span>
+                                    <h4>Piramide</h4>
+                                    <span>Visoko</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-01.jpg" alt="">
+                                <img src="img/tekija.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Aliquam elit metus</h4>
-                                    <span>New York</span>
+                                    <h4>Tekija Buna</h4>
+                                    <span>Blagaj</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-03.jpg" alt="">
+                                <img src="img/neum.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Phasellus pharetra</h4>
-                                    <span>Paris</span>
+                                    <h4>More</h4>
+                                    <span>Neum</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-04.jpg" alt="">
+                                <img src="img/jajce.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>In in quam efficitur</h4>
-                                    <span>Hollywood</span>
+                                    <h4>Vodopadi</h4>
+                                    <span>Jajce</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-01.jpg" alt="">
+                                <img src="img/rafting.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Sed faucibus odio</h4>
-                                    <span>NEW YORK</span>
+                                    <h4>Rafting</h4>
+                                    <span>Konjic</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item col-md-12">
                             <div class="visited-item">
-                                <img src="img/place-02.jpg" alt="">
+                                <img src="img/lukomir.jpg" alt="">
                                 <div class="text-content">
-                                    <h4>Donec varius porttitor</h4>
-                                    <span>Tokyo</span>
+                                    <h4>Planinarenje</h4>
+                                    <span>Lukomir</span>
                                 </div>
                             </div>
                         </div>
@@ -697,17 +692,16 @@
                 </div>
                 <div class="col-md-12">
                     <ul class="social-icons">
-                        <li><a href="https://www.facebook.com/tooplate"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="https://www.facebook.com/myfockingeyes/"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/bektafa/"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/farisbektas/"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://github.com/bektafa"><i class="fa fa-github"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-12">
                     <p>Copyright &copy; 2021 Flight Tour and Travel
                 
-                | Design: <a href="http://www.tooplate.com/view/2093-flight" target="_parent"><em>Flight</em></a></p>
+                | Design: <a target="_parent"><em>Beka</em></a></p>
                 </div>
             </div>
         </div>
@@ -773,6 +767,26 @@
         window.localStorage.clear();
         window.location = "login.html";
       }
+
+      getFlights();
+                function getFlights() {
+                    $.ajax({
+            url: "api/user/flights",
+            type: "GET",
+            beforeSend: function (xhr) { xhr.setRequestHeader('Authentication', localStorage.getItem("token")); },
+            success: function (data) {
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html += '<tr class="odd gradeX">'
+                        + '<td>' + data[i].flightid + '</td>'
+                        + '<td>' + data[i].flight_direction + '</td>'
+                        + '<td>' + data[i].flight_class + '</td>'
+                        + '<td>' + data[i].flight_origin + '</td>'                }
+                $('#airports-table tbody').html(html);
+                $('#airports-table').DataTable();
+            }
+        });
+    };
     </script>
 </body>
 </html>

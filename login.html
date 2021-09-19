@@ -250,21 +250,20 @@
       }
 
       function changePassword() {
-        var change_info = {
-          token: $("#reset-password-token").val(),
-          password: $("#reset-password").val(),
-        };
-        $("#resetButton").prop("disabled", true);
-        $.post("api/reset", JSONIZE_form("#reset-form-form"))
-          .done(function (data) {
-            window.localStorage.setItem("token", data.token);
-            window.location = "index.html";
-          })
-          .fail(function (error) {
-            $("#resetButton").prop("disabled", false);
-            alert(error.responseJSON.message);
-          });
-      }
+            var change_info = {
+                "token": $('#reset-password-token').val(),
+                "password": $('#reset-password').val()
+            }
+            $('#resetButton').prop('disabled', true);
+            $.post("api/reset", JSONIZE_form('#reset-form-form'))
+                .done(function (data) {
+                    window.localStorage.setItem("token", data.token);
+                    window.location = "index.html";
+                }).fail(function (error) {
+                    $('#resetButton').prop('disabled', false);
+                    alert(error.responseJSON.message);
+                });
+        }
 
       function showForgotForm() {
         $("#login-form").addClass("hidden");
@@ -283,21 +282,21 @@
       }
 
       function sendToken() {
-        $("#forgotbutton").prop("disabled", true);
-        $.post("api/forgot", JSONIZE_form("#forgot-form-form"))
-          .done(function (data) {
-            console.log(data);
-            $("#forgot-form").addClass("hidden");
-            $("#form-alert").removeClass("hidden");
-            $("#form-alert .alert").html(data.message);
-          })
-          .fail(function (error) {
-            $("#forgotbutton").prop("disabled", false);
-            $("#forgot-form").addClass("hidden");
-            $("#form-alert").removeClass("hidden");
-            $("#form-alert .alert").html(error.responseJSON.message);
-          });
-      }
+            $('#forgotbutton').prop('disabled', true);
+            $.post("api/forgot", Utilities.JSONIZE_form('#forgot-form-form'))
+                .done(function (data) {
+                    console.log(data);
+                    $('#forgot-form').addClass('hidden');
+                    $('#form-alert').removeClass('hidden');
+                    $('#form-alert .alert').html(data.message);
+                }).fail(function (error) {
+                    $('#forgotbutton').prop('disabled', false);
+                    $('#forgot-form').addClass('hidden');
+                    $('#form-alert').removeClass('hidden');
+                    $('#form-alert .alert').html(error.responseJSON.message);
+                });
+
+        };
 
       function registerUser() {
             $('#registerbutton').prop('disabled', true);
