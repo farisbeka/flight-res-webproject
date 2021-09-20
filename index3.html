@@ -249,7 +249,7 @@ function addPayment() {
         $.post("api/payement", payment_info).done(function(data){
             console.log(data);
             window.location.reload();
-            toastr.error('Succesfully booked flight!');
+            toastr.success('Succesfully booked flight!');
         }).fail(function(error){
           
           toastr.error('Failed to book a flight!');

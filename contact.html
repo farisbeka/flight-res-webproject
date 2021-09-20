@@ -203,8 +203,6 @@
 
         }
         $.post("api/contact", contact_info).done(function(data){
-            console.log(data);
-            window.location.reload();
             toastr.success("Succesfully sent message!");
         }).fail(function(error){
           
