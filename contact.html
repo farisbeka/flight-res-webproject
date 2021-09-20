@@ -3,14 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<!--
 
-Template 2093 Flight
-
-http://www.tooplate.com/view/2093-flight
-
--->
-    	<title>Flight - Contact Page</title>
+    	<title>Flight Reservation - Contact Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -99,7 +93,7 @@ http://www.tooplate.com/view/2093-flight
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Submit Your Message</button>
+                                    <button type="submit" id="form-submit" class="btn" onclick="addMessage();">Submit Your Message</button>
                                 </fieldset>
                             </div>
                         </div>
@@ -197,6 +191,26 @@ http://www.tooplate.com/view/2093-flight
         console = {
             log: function() { }
         };
+    }
+
+
+    function addMessage() {
+
+        var contact_info = {
+            'name' : $('#name').val(),
+            'email' : $('#email').val(),
+            'subject' : $('#message').val()
+
+        }
+        $.post("api/contact", contact_info).done(function(data){
+            console.log(data);
+            window.location.reload();
+            toastr.success("Succesfully sent message!");
+        }).fail(function(error){
+          
+          toastr.error('Failed to send a message!');
+        });
+    
     }
     </script>
 </body>

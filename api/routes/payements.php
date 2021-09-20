@@ -1,7 +1,7 @@
 <?php
 
 /**
- *     @OA\Post(path="/admin/payement", tags={"x-admin","payment"}, security={{"ApiKeyAuth":{}}},
+ *     @OA\Post(path="/payement", tags={"x-user","payment"}, security={{"ApiKeyAuth":{}}},
  * @OA\RequestBody(description="Basic payment info", required=true,
  *     @OA\MediaType(mediaType="application/json",
  *                @OA\Schema(
@@ -18,7 +18,7 @@
  * )
  */
 
-Flight::route('POST /admin/payement', function () {
+Flight::route('POST /payement', function () {
     $data = Flight::request()->data->getData();
     Flight::json(Flight::paymentService()->insert_new_payment("payements", $data));
 });

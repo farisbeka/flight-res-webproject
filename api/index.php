@@ -9,12 +9,14 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 require_once dirname(__FILE__) . "/dao/BaseDao.class.php";
 require_once dirname(__FILE__) . "/dao/FlightsDao.class.php";
+require_once dirname(__FILE__) . "/dao/ContactDao.class.php";
 require_once dirname(__FILE__) . "/dao/BookingDao.class.php";
 require_once dirname(__FILE__) . "/dao/AirportsDao.class.php";
 require_once dirname(__FILE__) . "/dao/AccountsDao.class.php";
 require_once dirname(__FILE__) . "/dao/PayementsDao.class.php";
 require_once dirname(__FILE__) . "/services/AccountService.class.php";
 require_once dirname(__FILE__) . "/services/AirportsService.class.php";
+require_once dirname(__FILE__) . "/services/ContactService.class.php";
 require_once dirname(__FILE__) . "/services/FlightService.class.php";
 require_once dirname(__FILE__) . "/services/BookingService.class.php";
 require_once dirname(__FILE__) . "/services/PayementsService.class.php";
@@ -53,11 +55,13 @@ Flight::register("Airportsservice", "AirportsService");
 Flight::register("flightService", "flightService");
 Flight::register("bookingService", "BookingService");
 Flight::register("paymentService", "PayementsService");
+Flight::register("Contactservice", "ContactService");
 
 /**Include all routes */
 require_once dirname(__FILE__) . "/routes/middleware.php";
 require_once dirname(__FILE__) . "/routes/accounts.php";
 require_once dirname(__FILE__) . "/routes/airports.php";
+require_once dirname(__FILE__) . "/routes/contact.php";
 require_once dirname(__FILE__) . "/routes/flights.php";
 require_once dirname(__FILE__) . "/routes/booking.php";
 require_once dirname(__FILE__) . "/routes/payements.php";
