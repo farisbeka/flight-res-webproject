@@ -85,7 +85,7 @@ class BaseDao
         }
         $query = substr($query, 0, -2);
         $query .= ")";
-
+        echo ($query);
         $stmt = $this->connection->prepare($query);
         $stmt->execute($entity);
         $entity['id'] = $this->connection->lastInsertId();
